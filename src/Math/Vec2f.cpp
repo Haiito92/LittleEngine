@@ -3,18 +3,6 @@
 
 namespace LE
 {
-    Vec2f::Vec2f(float x, float y):
-    m_x(x),m_y(y)
-    {
-        
-    }
-
-    Vec2f::Vec2f(const Vec2f& other):
-    m_x(other.m_x),m_y(other.m_y)
-    {
-        
-    }
-
     Vec2f& Vec2f::operator+(const Vec2f& other)
     {
         m_x += other.m_x;

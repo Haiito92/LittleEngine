@@ -6,8 +6,8 @@ namespace LE
     struct LE_Physics_API Vec2f
     {
         Vec2f() = default;
-        Vec2f(float x, float y);
-        Vec2f(const Vec2f& other);
+        Vec2f(float x, float y):m_x(x),m_y(y){}
+        Vec2f(const Vec2f& other):m_x(other.m_x),m_y(other.m_y){}
         Vec2f(Vec2f&& other) = delete;
         ~Vec2f() = default;
 

@@ -2,7 +2,7 @@
 #include <vector>
 #include "../API.h"
 
-#include "BodyComponent.h"
+#include "Body/BodyComponent.h"
 
 
 namespace LE
@@ -23,7 +23,7 @@ namespace LE
         void Init();
         void Update(float inDeltaTime);
 
-        std::shared_ptr<BodyComponent> CreateBody(const Vec2f& pos);
+        std::shared_ptr<BodyComponent> CreateBody(const BodyCreationSettings& inSettings);
     private:
         void AddBody(const std::shared_ptr<BodyComponent>& inBodyComponent);
 

@@ -29,8 +29,13 @@ int main(int argc, char** argv) {
         
         const std::unique_ptr<LE::PhysicsSystem> physicsSystem = std::make_unique<LE::PhysicsSystem>();
         physicsSystem->Init();
+
+        LE::BodyCreationSettings bodyCreationSettings ={
+            {SCREEN_WIDTH/2.f, SCREEN_HEIGHT/2.f},
+        };
+        
         const std::shared_ptr<LE::BodyComponent> bodyComponent =
-            physicsSystem->CreateBody({SCREEN_WIDTH/2.f, SCREEN_HEIGHT/2.f});
+            physicsSystem->CreateBody(bodyCreationSettings);
         
         bool quitApp = false;
         //Game Loop

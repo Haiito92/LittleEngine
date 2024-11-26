@@ -21,9 +21,9 @@ namespace LE
         }
     }
 
-    std::shared_ptr<BodyComponent> PhysicsSystem::CreateBody(const Vec2f& pos)
+    std::shared_ptr<BodyComponent> PhysicsSystem::CreateBody(const BodyCreationSettings& inSettings)
     {
-        std::shared_ptr<BodyComponent> bodyComponent = std::make_shared<BodyComponent>(pos);
+        std::shared_ptr<BodyComponent> bodyComponent = std::make_shared<BodyComponent>(inSettings);
         AddBody(bodyComponent);
         return bodyComponent;
     }
