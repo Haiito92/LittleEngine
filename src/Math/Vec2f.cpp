@@ -10,16 +10,30 @@ namespace LE
         return *this;
     }
 
-    Vec2f& Vec2f::operator*(float f)
+    Vec2f& Vec2f::operator+=(const Vec2f& other)
+    {
+        m_x += other.m_x;
+        m_y += other.m_y;
+        return *this;
+    }
+
+    Vec2f& Vec2f::operator*(const float f)
     {
         m_x *= f;
         m_y *= f;
         return *this;
     }
 
-    Vec2f Vec2f::operator*(float f) const
+    Vec2f Vec2f::operator*(const float f) const
     {
         return {m_x*f, m_y*f};
+    }
+
+    Vec2f& Vec2f::operator/(const float f)
+    {
+        m_x/=f;
+        m_y/=f;
+        return *this;
     }
 
     const Vec2f Vec2f::zero = {0,0};

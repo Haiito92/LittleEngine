@@ -28,5 +28,7 @@ namespace LE
         void AddBody(const std::shared_ptr<BodyComponent>& inBodyComponent);
 
         std::vector<std::shared_ptr<BodyComponent>> m_bodyComponents;
+
+        Vec2f m_gravity = {0, 9.81f};
     };
 }

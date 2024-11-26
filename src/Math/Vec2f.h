@@ -15,8 +15,12 @@ namespace LE
         Vec2f& operator=(Vec2f&& other) = delete;
 
         Vec2f& operator+(const Vec2f& other);
-        Vec2f& operator*(float f);
-        Vec2f operator*(float f) const;
+        Vec2f& operator+=(const Vec2f& other);
+        
+        Vec2f& operator*(const float f);
+        Vec2f operator*(const float f) const;
+        
+        Vec2f& operator/(const float f);
 
         float m_x = 0;
         float m_y = 0;

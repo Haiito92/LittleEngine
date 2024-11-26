@@ -64,8 +64,8 @@ int main(int argc, char** argv) {
             
             //Draw Body
             SDL_Rect rect{
-                static_cast<int>(bodyComponent->GetPos().m_x) - SCREEN_WIDTH/6/2,
-                static_cast<int>(bodyComponent->GetPos().m_y) - SCREEN_HEIGHT/6/2,
+                static_cast<int>(bodyComponent->m_pos.m_x) - SCREEN_WIDTH/6/2,
+                static_cast<int>(bodyComponent->m_pos.m_y) - SCREEN_HEIGHT/6/2,
                 SCREEN_WIDTH/6,
                 SCREEN_HEIGHT/6};
             SDL_SetRenderDrawColor(gRenderer, 0xFF, 0x00,0x00,0xFF);

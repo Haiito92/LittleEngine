@@ -17,7 +17,19 @@ namespace LE
     {
         for (const std::shared_ptr<BodyComponent>& bodyComponent : m_bodyComponents)
         {
-            bodyComponent->SetPos(bodyComponent->GetPos() + Vec2f::down * 10.0f * inDeltaTime);
+            //Reset force & calculate new force
+            bodyComponent->m_force = Vec2f::zero;
+            bodyComponent->m_force += m_gravity;
+
+            
+            //calculate acceleration
+            Vec2f acceleration = bodyComponent->m_force / 1.f; //replace this with body mass later
+            
+            //Calculate linear velocity
+            bodyComponent->m_linearVelocity = bodyComponent->m_linearVelocity + acceleration * inDeltaTime;
+            std::cout << bodyComponent->m_linearVelocity.m_y <<'\n';
+            
+            bodyComponent->m_pos = bodyComponent->m_pos + bodyComponent->m_linearVelocity * inDeltaTime;
         }
     }
 
