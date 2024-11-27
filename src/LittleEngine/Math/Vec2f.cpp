@@ -8,7 +8,7 @@ namespace LE
         return {m_x + other.m_x, m_y + other.m_y};
     }
 
-    Vec2f Vec2f::operator+=(const Vec2f& other)
+    Vec2f& Vec2f::operator+=(const Vec2f& other)
     {
         m_x += other.m_x;
         m_y += other.m_y;
@@ -20,11 +20,9 @@ namespace LE
         return {m_x*f, m_y*f};
     }
 
-    Vec2f& Vec2f::operator/(const float f)
+    Vec2f Vec2f::operator/(const float f) const
     {
-        m_x/=f;
-        m_y/=f;
-        return *this;
+        return {m_x/f, m_y/f};
     }
 
     const Vec2f Vec2f::zero = {0,0};
