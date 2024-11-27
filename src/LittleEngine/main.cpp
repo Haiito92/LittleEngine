@@ -34,20 +34,17 @@ int main(int argc, char** argv) {
             physicsSystem->CreateBody(bodyCreationSettings);
 
         //Time Variables
-        Uint64 lastTime = 0;
+        double time = 0;
+        constexpr double fixedDeltaTime = 1.0 / 60.0;
+        
+        Uint64 newTime = 0;
         Uint64 currentTime = SDL_GetTicks64();
-        double t = 0;
-        double fixedDeltaTime = 1.0 / 60.0;
+        double accumulator = 0.0;
         
         bool quitApp = false;
         //Game Loop
         while (!quitApp)
         {
-            //Time
-            lastTime = currentTime;
-            currentTime = SDL_GetTicks64();
-            const float deltaTime = (currentTime - lastTime)/ 1000.f;
-            
             SDL_Event e;
             //Handle events on queue
             while (SDL_PollEvent(&e) != 0)
@@ -57,8 +54,22 @@ int main(int argc, char** argv) {
                     quitApp = true;
                 }
             }
+            
+            //Time
+            newTime = SDL_GetTicks64();
+            const double frameDeltaTime = (newTime - currentTime)/ 1000.f;
+            currentTime = newTime;
 
-            physicsSystem->Update(fixedDeltaTime);
+            accumulator += frameDeltaTime;
+
+            while(accumulator >= fixedDeltaTime)
+            {
+                //Update Physics system for as many steps as needed
+                physicsSystem->Update(fixedDeltaTime);
+                accumulator -= fixedDeltaTime;
+                time += fixedDeltaTime;
+            }
+            
             
             //Clear screen
             SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00,0x00,0xFF);
