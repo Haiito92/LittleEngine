@@ -1,11 +1,13 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL2_gfxPrimitives.h>
 
 #include "Physics/PhysicsSystem.h"
+#include "Rendering/RenderSystem.h"
 
-const int SCREEN_WIDTH = 1280;
-const int SCREEN_HEIGHT = 720;
+const int SCREEN_WIDTH = 1920;
+const int SCREEN_HEIGHT = 1080;
 
 SDL_Window* gWindow;
 SDL_Renderer* gRenderer;
@@ -23,15 +25,22 @@ int main(int argc, char** argv) {
     }
     else
     {
-        const std::unique_ptr<LE::PhysicsSystem> physicsSystem = std::make_unique<LE::PhysicsSystem>();
+        //Create and init systems
+        const std::shared_ptr<LE::PhysicsSystem> physicsSystem = std::make_unique<LE::PhysicsSystem>();
         physicsSystem->Init();
-
+        std::shared_ptr<LE::RenderSystem> renderSystem = std::make_unique<LE::RenderSystem>(gRenderer, gWindow);
+        renderSystem->Init();
+        
+        //Create bodies for test
         LE::BodyCreationSettings bodyCreationSettings ={
-            {SCREEN_WIDTH/2.f, SCREEN_HEIGHT/2.f},
+            {SCREEN_WIDTH/3.f, SCREEN_HEIGHT/2.f},
+        };
+        LE::BodyCreationSettings bodyCreationSettings2 ={
+            {2*SCREEN_WIDTH/3.f, SCREEN_HEIGHT/2.f},
         };
         
-        const std::shared_ptr<LE::BodyComponent> bodyComponent =
-            physicsSystem->CreateBody(bodyCreationSettings);
+        physicsSystem->CreateBody(bodyCreationSettings);
+        physicsSystem->CreateBody(bodyCreationSettings2);
 
         //Time Variables
         double time = 0;
@@ -60,6 +69,7 @@ int main(int argc, char** argv) {
             const double frameDeltaTime = (newTime - currentTime)/ 1000.f;
             currentTime = newTime;
 
+            //Accumulator use to know how many fixedUpdate we need to make
             accumulator += frameDeltaTime;
 
             while(accumulator >= fixedDeltaTime)
@@ -70,22 +80,10 @@ int main(int argc, char** argv) {
                 time += fixedDeltaTime;
             }
             
+            //Render Update : Passing in the body components to draw the bodies for the demo
+            //Later should use internal shape components (linked with body components through an object)
+            renderSystem->Update(frameDeltaTime, physicsSystem->GetBodyComponents());
             
-            //Clear screen
-            SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00,0x00,0xFF);
-            SDL_RenderClear(gRenderer);
-            
-            //Draw Body
-            SDL_Rect rect{
-                static_cast<int>(bodyComponent->m_pos.m_x) - SCREEN_WIDTH/6/2,
-                static_cast<int>(bodyComponent->m_pos.m_y) - SCREEN_HEIGHT/6/2,
-                SCREEN_WIDTH/6,
-                SCREEN_HEIGHT/6};
-            SDL_SetRenderDrawColor(gRenderer, 0xFF, 0x00,0x00,0xFF);
-            SDL_RenderFillRect(gRenderer, &rect);
-            
-            //Update screen
-            SDL_RenderPresent(gRenderer);
         }
     }
     

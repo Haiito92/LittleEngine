@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "../API.h"
+#include "API.h"
 
 #include "Body/BodyComponent.h"
 
@@ -9,7 +9,7 @@ namespace LE
 {
     struct BodyComponent;
     
-    class LE_Physics_API PhysicsSystem
+    class LE_PHYSICS_API PhysicsSystem
     {
     public:
         PhysicsSystem() = default;
@@ -23,12 +23,23 @@ namespace LE
         void Init();
         void Update(float inDeltaTime);
 
+#pragma region Physical Bodies
+        
+    public:
         std::shared_ptr<BodyComponent> CreateBody(const BodyCreationSettings& inSettings);
+        
+        inline const std::vector<std::shared_ptr<BodyComponent>>& GetBodyComponents() const;
     private:
         void AddBody(const std::shared_ptr<BodyComponent>& inBodyComponent);
 
         std::vector<std::shared_ptr<BodyComponent>> m_bodyComponents;
 
         Vec2f m_gravity = {0, 9.81f};
+        
+#pragma endregion
+
+#pragma region Collisions
+        
+#pragma endregion 
     };
 }

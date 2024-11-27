@@ -3,7 +3,7 @@
 
 namespace LE
 {
-    struct LE_Physics_API Vec2f
+    struct LE_PHYSICS_API Vec2f
     {
         Vec2f() = default;
         Vec2f(float x, float y):m_x(x),m_y(y){}

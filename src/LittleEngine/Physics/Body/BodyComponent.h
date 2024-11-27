@@ -9,11 +9,11 @@ namespace LE
 {
     struct BodyCreationSettings;
     
-    struct LE_Physics_API BodyComponent
+    struct LE_PHYSICS_API BodyComponent
     {
     public:
         BodyComponent() = default;
-        BodyComponent(const BodyCreationSettings& inSettings):m_pos(inSettings.m_pos), m_linearVelocity(inSettings.m_linearVelocity){}
+        BodyComponent(const BodyCreationSettings& inSettings):m_pos(inSettings.m_pos), m_linearVelocity(inSettings.m_linearVelocity), m_mass(inSettings.m_mass){}
         BodyComponent(const BodyComponent& other) = delete;
         BodyComponent(BodyComponent&& other) = delete;
         ~BodyComponent() = default;
@@ -25,6 +25,7 @@ namespace LE
         Vec2f m_pos = Vec2f::zero;
         Vec2f m_linearVelocity = Vec2f::zero;
         Vec2f m_force = Vec2f::zero;
+        float m_mass = 1.0f;
         
 
     }; 

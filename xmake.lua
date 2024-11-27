@@ -1,5 +1,5 @@
 add_rules("mode.debug", "mode.release")
-add_requires("libsdl","libsdl_image")
+add_requires("libsdl","libsdl_image","libsdl_gfx")
 add_requireconfs("libsdl", "**.libsdl", { configs = { sdlmain = false }})
 set_languages("c++20")
 
@@ -12,7 +12,7 @@ target("LittleEngine")
     add_headerfiles("src/**.h")
     add_includedirs("src/LittleEngine")
     
-    add_packages("libsdl","libsdl_image")
+    add_packages("libsdl","libsdl_image","libsdl_gfx")
     
 
 --
