@@ -1,5 +1,5 @@
 #pragma once
-#include "Math/Vec2f.h"
+#include "Core/Math/Vec2f.h"
 
 namespace LE
 {

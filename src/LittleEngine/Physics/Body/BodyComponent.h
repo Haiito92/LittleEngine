@@ -3,7 +3,7 @@
 
 #include "BodyCreationSettings.h"
 #include "API.h"
-#include "Math/Vec2f.h"
+#include "Core/Math/Vec2f.h"
 
 namespace LE
 {
