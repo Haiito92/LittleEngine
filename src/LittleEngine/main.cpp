@@ -1,7 +1,6 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
-#include <SDL2_gfxPrimitives.h>
 
 #include "Physics/PhysicsSystem.h"
 #include "Rendering/RenderSystem.h"
@@ -26,9 +25,9 @@ int main(int argc, char** argv) {
     else
     {
         //Create and init systems
-        const std::shared_ptr<LE::PhysicsSystem> physicsSystem = std::make_unique<LE::PhysicsSystem>();
+        const std::shared_ptr<LE::PhysicsSystem> physicsSystem = std::make_shared<LE::PhysicsSystem>();
         physicsSystem->Init();
-        std::shared_ptr<LE::RenderSystem> renderSystem = std::make_unique<LE::RenderSystem>(gRenderer, gWindow);
+        std::shared_ptr<LE::RenderSystem> renderSystem = std::make_shared<LE::RenderSystem>(gRenderer, gWindow);
         renderSystem->Init();
         
         //Create bodies for test
