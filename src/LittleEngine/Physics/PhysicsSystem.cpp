@@ -28,7 +28,8 @@ namespace LE
             //Calculate linear velocity
             bodyComponent->m_linearVelocity = bodyComponent->m_linearVelocity + acceleration * inDeltaTime;
             std::cout << bodyComponent->m_linearVelocity.m_y <<'\n';
-            
+
+            //Calculate position
             bodyComponent->m_pos = bodyComponent->m_pos + bodyComponent->m_linearVelocity * inDeltaTime;
         }
     }

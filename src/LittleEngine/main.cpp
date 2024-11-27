@@ -23,10 +23,6 @@ int main(int argc, char** argv) {
     }
     else
     {
-        //Time Variables
-        Uint64 lastTime = 0;
-        Uint64 currentTime = SDL_GetTicks64();
-        
         const std::unique_ptr<LE::PhysicsSystem> physicsSystem = std::make_unique<LE::PhysicsSystem>();
         physicsSystem->Init();
 
@@ -36,6 +32,12 @@ int main(int argc, char** argv) {
         
         const std::shared_ptr<LE::BodyComponent> bodyComponent =
             physicsSystem->CreateBody(bodyCreationSettings);
+
+        //Time Variables
+        Uint64 lastTime = 0;
+        Uint64 currentTime = SDL_GetTicks64();
+        double t = 0;
+        double fixedDeltaTime = 1.0 / 60.0;
         
         bool quitApp = false;
         //Game Loop
@@ -56,7 +58,7 @@ int main(int argc, char** argv) {
                 }
             }
 
-            physicsSystem->Update(deltaTime);
+            physicsSystem->Update(fixedDeltaTime);
             
             //Clear screen
             SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00,0x00,0xFF);

@@ -12,12 +12,11 @@ namespace LE
         ~Vec2f() = default;
 
         Vec2f& operator=(const Vec2f& other) = default;
-        Vec2f& operator=(Vec2f&& other) = delete;
+        Vec2f& operator=(Vec2f&& other) = default;
 
-        Vec2f& operator+(const Vec2f& other);
-        Vec2f& operator+=(const Vec2f& other);
+        Vec2f operator+(const Vec2f& other) const;
+        Vec2f operator+=(const Vec2f& other);
         
-        Vec2f& operator*(const float f);
         Vec2f operator*(const float f) const;
         
         Vec2f& operator/(const float f);
