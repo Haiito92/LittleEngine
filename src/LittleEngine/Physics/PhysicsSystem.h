@@ -22,7 +22,7 @@ namespace LE
         PhysicsSystem& operator=(PhysicsSystem&& other) = delete;
 
         void Init();
-        void Update(float inDeltaTime, SDL_Window* inWindow);
+        void Update(float inDeltaTime, SDL_Window* inWindow) const;
 
 #pragma region Physical Bodies
         
@@ -40,7 +40,7 @@ namespace LE
 #pragma endregion
 
 #pragma region Collisions
-        
+        void CollisionsWithWindow(SDL_Window* inWindow) const;
 #pragma endregion 
     };
 }

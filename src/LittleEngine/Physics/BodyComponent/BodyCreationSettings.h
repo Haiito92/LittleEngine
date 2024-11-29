@@ -7,7 +7,7 @@ namespace LE
     {
     public:
         BodyCreationSettings() = default;
-        BodyCreationSettings(const Vec2f& pos, const Vec2f& velocity = Vec2f::zero, float mass = 1.0f):m_pos(pos), m_linearVelocity(velocity), m_mass(mass){}
+        BodyCreationSettings(const Vec2f& pos, const Vec2f& velocity = Vec2f::zero, const float mass = 1.0f):m_pos(pos), m_linearVelocity(velocity), m_mass(mass){}
         BodyCreationSettings(const BodyCreationSettings& other) = delete;
         BodyCreationSettings(BodyCreationSettings&& other) = delete;
         ~BodyCreationSettings() = default;

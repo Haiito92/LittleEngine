@@ -32,14 +32,15 @@ int main(int argc, char** argv) {
         
         //Create bodies for test
         LE::BodyCreationSettings bodyCreationSettings ={
-            {SCREEN_WIDTH/3.f, SCREEN_HEIGHT/2.f},
+            {SCREEN_WIDTH/2.f, SCREEN_HEIGHT/3.f},
+            {300.0f, 0.0f}
         };
-        LE::BodyCreationSettings bodyCreationSettings2 ={
-            {2*SCREEN_WIDTH/3.f, SCREEN_HEIGHT/2.f},
-        };
+        // LE::BodyCreationSettings bodyCreationSettings2 ={
+        //     {SCREEN_WIDTH/2.f, 2*SCREEN_HEIGHT/3.f},
+        // };
         
         physicsSystem->CreateBody(bodyCreationSettings);
-        physicsSystem->CreateBody(bodyCreationSettings2);
+        // physicsSystem->CreateBody(bodyCreationSettings2);
 
         //Time Variables
         double time = 0;

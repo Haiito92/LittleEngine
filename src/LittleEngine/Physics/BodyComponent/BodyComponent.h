@@ -24,7 +24,7 @@ namespace LE
         BodyComponent& operator=(BodyComponent&& other) = delete;
 
 
-        std::unique_ptr<CircleComponent> m_circleShape;
+        std::unique_ptr<CircleComponent> m_circleShape = nullptr;
         Vec2f m_pos = Vec2f::zero;
         Vec2f m_linearVelocity = Vec2f::zero;
         Vec2f m_force = Vec2f::zero;

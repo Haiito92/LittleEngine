@@ -1,6 +1,5 @@
 #pragma once
 #include "API.h"
-#include "Core/Math/Vec2f.h"
 
 namespace LE
 {
