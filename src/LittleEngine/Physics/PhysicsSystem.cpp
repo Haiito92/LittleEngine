@@ -51,7 +51,7 @@ namespace LE
                 pos.m_y = hWindow - radius;
                 
                 //Add Impact Vector
-                bodyComponent->m_force += Vec2f::up * (-bodyComponent->m_linearVelocity.m_y);
+                bodyComponent->m_linearVelocity.m_y = -bodyComponent->m_linearVelocity.m_y;
             };
             
         }
