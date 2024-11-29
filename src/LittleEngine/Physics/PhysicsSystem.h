@@ -1,8 +1,9 @@
 #pragma once
+#include <SDL_video.h>
 #include <vector>
 #include "API.h"
 
-#include "Body/BodyComponent.h"
+#include "BodyComponent/BodyComponent.h"
 
 
 namespace LE
@@ -21,7 +22,7 @@ namespace LE
         PhysicsSystem& operator=(PhysicsSystem&& other) = delete;
 
         void Init();
-        void Update(float inDeltaTime);
+        void Update(float inDeltaTime, SDL_Window* inWindow);
 
 #pragma region Physical Bodies
         

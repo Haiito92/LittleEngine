@@ -74,7 +74,7 @@ int main(int argc, char** argv) {
             while(accumulator >= fixedDeltaTime)
             {
                 //Update Physics system for as many steps as needed
-                physicsSystem->Update(fixedDeltaTime);
+                physicsSystem->Update(fixedDeltaTime, gWindow);
                 accumulator -= fixedDeltaTime;
                 time += fixedDeltaTime;
             }

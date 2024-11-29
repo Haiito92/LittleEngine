@@ -3,7 +3,8 @@
 #include <memory>
 #include <SDL2_gfxPrimitives.h>
 
-#include "Physics/Body/BodyComponent.h"
+#include "Physics/BodyComponent/BodyComponent.h"
+#include "Physics/Collision/ShapeComponents/CircleComponent.h"
 
 namespace LE
 {
@@ -23,11 +24,11 @@ namespace LE
         for (std::shared_ptr<BodyComponent> bodyComponent : inBodyComponents)
         {
             //Draw Body
-            float radius = 50;
+            
             filledCircleRGBA(m_renderer,
                 bodyComponent->m_pos.m_x,
                 bodyComponent->m_pos.m_y,
-                radius,
+                bodyComponent->m_circleShape->m_radius,
                 255,255,255,255);
         }
             
