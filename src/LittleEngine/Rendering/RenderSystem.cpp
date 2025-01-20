@@ -6,7 +6,7 @@
 #include "Physics/BodyComponent/BodyComponent.h"
 #include "Physics/Collision/ShapeComponents/CircleComponent.h"
 
-namespace LE
+namespace LittleEngine
 {
     void RenderSystem::Init()
     {
@@ -26,9 +26,9 @@ namespace LE
             //Draw Body
             
             filledCircleRGBA(m_renderer,
-                bodyComponent->m_pos.m_x,
-                bodyComponent->m_pos.m_y,
-                bodyComponent->m_circleShape->m_radius,
+                bodyComponent->pos.x,
+                bodyComponent->pos.y,
+                bodyComponent->circleShape->m_radius,
                 255,255,255,255);
         }
             

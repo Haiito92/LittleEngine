@@ -25,13 +25,13 @@ int main(int argc, char** argv) {
     else
     {
         //Create and init systems
-        const std::shared_ptr<LE::PhysicsSystem> physicsSystem = std::make_shared<LE::PhysicsSystem>();
+        const std::shared_ptr<LittleEngine::PhysicsSystem> physicsSystem = std::make_shared<LittleEngine::PhysicsSystem>();
         physicsSystem->Init();
-        std::shared_ptr<LE::RenderSystem> renderSystem = std::make_shared<LE::RenderSystem>(gRenderer, gWindow);
+        std::shared_ptr<LittleEngine::RenderSystem> renderSystem = std::make_shared<LittleEngine::RenderSystem>(gRenderer, gWindow);
         renderSystem->Init();
         
         //Create bodies for test
-        LE::BodyCreationSettings bodyCreationSettings ={
+        LittleEngine::BodyCreationSettings bodyCreationSettings ={
             {SCREEN_WIDTH/2.f, SCREEN_HEIGHT/3.f},
             {300.0f, 0.0f}
         };

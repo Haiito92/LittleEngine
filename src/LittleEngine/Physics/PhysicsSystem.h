@@ -6,7 +6,7 @@
 #include "BodyComponent/BodyComponent.h"
 
 
-namespace LE
+namespace LittleEngine
 {
     struct BodyComponent;
     

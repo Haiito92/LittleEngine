@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 #include <SDL_render.h>
-namespace LE
+namespace LittleEngine
 {
     struct BodyComponent;
 

@@ -1,13 +1,13 @@
 #pragma once
 #include "API.h"
 
-namespace LE
+namespace LittleEngine
 {
     struct LE_CORE_API Vec2f
     {
         Vec2f() = default;
-        Vec2f(float x, float y):m_x(x),m_y(y){}
-        Vec2f(const Vec2f& other):m_x(other.m_x),m_y(other.m_y){}
+        Vec2f(float x, float y):x(x),y(y){}
+        Vec2f(const Vec2f& other):x(other.x),y(other.y){}
         Vec2f(Vec2f&& other) = delete;
         ~Vec2f() = default;
 
@@ -20,15 +20,15 @@ namespace LE
         Vec2f operator*(const float f) const;
         Vec2f operator/(const float f) const;
 
-        float m_x = 0;
-        float m_y = 0;
+        float x = 0;
+        float y = 0;
 
-        static const Vec2f zero;
-        static const Vec2f one;
-        static const Vec2f up;
-        static const Vec2f down;
-        static const Vec2f left;
-        static const Vec2f right;
+        static const Vec2f ZERO;
+        static const Vec2f ONE;
+        static const Vec2f UP;
+        static const Vec2f DOWN;
+        static const Vec2f LEFT;
+        static const Vec2f RIGHT;
     }; 
 }
 

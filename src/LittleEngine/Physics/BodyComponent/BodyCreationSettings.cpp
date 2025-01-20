@@ -1,6 +1,6 @@
 #include "BodyCreationSettings.h"
 
-namespace LE
+namespace LittleEngine
 {
     
 }

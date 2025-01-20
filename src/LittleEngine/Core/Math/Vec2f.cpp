@@ -1,36 +1,36 @@
 #include "Vec2f.h"
 
 
-namespace LE
+namespace LittleEngine
 {
     Vec2f Vec2f::operator+(const Vec2f& other) const
     {
-        return {m_x + other.m_x, m_y + other.m_y};
+        return {x + other.x, y + other.y};
     }
 
     Vec2f& Vec2f::operator+=(const Vec2f& other)
     {
-        m_x += other.m_x;
-        m_y += other.m_y;
+        x += other.x;
+        y += other.y;
         return *this;
     }
 
     Vec2f Vec2f::operator*(const float f) const
     {
-        return {m_x*f, m_y*f};
+        return {x*f, y*f};
     }
 
     Vec2f Vec2f::operator/(const float f) const
     {
-        return {m_x/f, m_y/f};
+        return {x/f, y/f};
     }
 
-    const Vec2f Vec2f::zero = {0,0};
-    const Vec2f Vec2f::one = {1,1};
-    const Vec2f Vec2f::up = {0,-1};
-    const Vec2f Vec2f::down = {0,1};
-    const Vec2f Vec2f::left = {-1,0};
-    const Vec2f Vec2f::right = {1,0};
+    const Vec2f Vec2f::ZERO = {0,0};
+    const Vec2f Vec2f::ONE = {1,1};
+    const Vec2f Vec2f::UP = {0,-1};
+    const Vec2f Vec2f::DOWN = {0,1};
+    const Vec2f Vec2f::LEFT = {-1,0};
+    const Vec2f Vec2f::RIGHT = {1,0};
 
 }
 

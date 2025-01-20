@@ -1,10 +1,10 @@
 #include "BodyComponent.h"
 #include "Physics/Collision/ShapeComponents/CircleComponent.h"
-namespace LE
+namespace LittleEngine
 {
-    BodyComponent::BodyComponent(const BodyCreationSettings& inSettings):m_pos(inSettings.m_pos), m_linearVelocity(inSettings.m_linearVelocity), m_mass(inSettings.m_mass)
+    BodyComponent::BodyComponent(const BodyCreationSettings& inSettings):pos(inSettings.pos), linearVelocity(inSettings.linearVelocity), mass(inSettings.mass)
     {
-        m_circleShape = std::make_unique<CircleComponent>(50.0f);
+        circleShape = std::make_unique<CircleComponent>(50.0f);
     }
 }
 

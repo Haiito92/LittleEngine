@@ -7,7 +7,7 @@
 #include "Physics/Collision/ShapeComponents/CircleComponent.h"
 
 
-namespace LE
+namespace LittleEngine
 {
     struct BodyCreationSettings;
 
@@ -24,11 +24,11 @@ namespace LE
         BodyComponent& operator=(BodyComponent&& other) = delete;
 
 
-        std::unique_ptr<CircleComponent> m_circleShape = nullptr;
-        Vec2f m_pos = Vec2f::zero;
-        Vec2f m_linearVelocity = Vec2f::zero;
-        Vec2f m_force = Vec2f::zero;
-        float m_mass = 1.0f;
+        std::unique_ptr<CircleComponent> circleShape = nullptr;
+        Vec2f pos = Vec2f::ZERO;
+        Vec2f linearVelocity = Vec2f::ZERO;
+        Vec2f force = Vec2f::ZERO;
+        float mass = 1.0f;
         
 
     }; 

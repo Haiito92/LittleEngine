@@ -1,13 +1,13 @@
 #pragma once
 #include "Core/Math/Vec2f.h"
 
-namespace LE
+namespace LittleEngine
 {
-    struct BodyCreationSettings
+    struct LE_PHYSICS_API BodyCreationSettings
     {
     public:
         BodyCreationSettings() = default;
-        BodyCreationSettings(const Vec2f& pos, const Vec2f& velocity = Vec2f::zero, const float mass = 1.0f):m_pos(pos), m_linearVelocity(velocity), m_mass(mass){}
+        BodyCreationSettings(const Vec2f& pos, const Vec2f& velocity = Vec2f::ZERO, const float mass = 1.0f):pos(pos), linearVelocity(velocity), mass(mass){}
         BodyCreationSettings(const BodyCreationSettings& other) = delete;
         BodyCreationSettings(BodyCreationSettings&& other) = delete;
         ~BodyCreationSettings() = default;
@@ -15,9 +15,9 @@ namespace LE
         BodyCreationSettings& operator=(const BodyCreationSettings& other) = delete;
         BodyCreationSettings& operator=(BodyCreationSettings&& other) = delete;
 
-        Vec2f m_pos = Vec2f::zero;
-        Vec2f m_linearVelocity = Vec2f::zero;
-        float m_mass = 1.0f;
+        Vec2f pos = Vec2f::ZERO;
+        Vec2f linearVelocity = Vec2f::ZERO;
+        float mass = 1.0f;
     };
 }
 

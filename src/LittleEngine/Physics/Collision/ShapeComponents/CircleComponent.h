@@ -1,7 +1,7 @@
 #pragma once
 #include "API.h"
 
-namespace LE
+namespace LittleEngine
 {
     struct LE_PHYSICS_API CircleComponent
     {
