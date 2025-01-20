@@ -4,16 +4,18 @@
 #include "API.h"
 
 #include "BodyComponent/BodyComponent.h"
+#include "Entities/System.h"
 
 
 namespace LittleEngine
 {
     struct BodyComponent;
     
-    class LE_PHYSICS_API PhysicsSystem
+    class LE_PHYSICS_API PhysicsSystem : public System
     {
     public:
-        PhysicsSystem() = default;
+        PhysicsSystem() = delete;
+        PhysicsSystem(const std::shared_ptr<EntityManager>& entityManager);
         PhysicsSystem(const PhysicsSystem& other) = delete;
         PhysicsSystem(PhysicsSystem&& other) = delete;
         ~PhysicsSystem() = default;

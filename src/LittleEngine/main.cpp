@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include "Entities/EntityManager.h"
 #include "Physics/PhysicsSystem.h"
 #include "Rendering/RenderSystem.h"
 
@@ -24,8 +25,11 @@ int main(int argc, char** argv) {
     }
     else
     {
+        //We create the EntityManager first since all other systems depends on him
+        std::shared_ptr<LittleEngine::EntityManager> entityManager = std::make_shared<LittleEngine::EntityManager>();
+        
         //Create and init systems
-        const std::shared_ptr<LittleEngine::PhysicsSystem> physicsSystem = std::make_shared<LittleEngine::PhysicsSystem>();
+        const std::shared_ptr<LittleEngine::PhysicsSystem> physicsSystem = std::make_shared<LittleEngine::PhysicsSystem>(entityManager);
         physicsSystem->Init();
         std::shared_ptr<LittleEngine::RenderSystem> renderSystem = std::make_shared<LittleEngine::RenderSystem>(gRenderer, gWindow);
         renderSystem->Init();

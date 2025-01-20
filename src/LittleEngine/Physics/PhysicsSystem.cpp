@@ -7,6 +7,9 @@
 
 namespace LittleEngine
 {
+    PhysicsSystem::PhysicsSystem(const std::shared_ptr<EntityManager>& entityManager) : System(entityManager)
+    {
+    }
 
     void PhysicsSystem::Init()
     {

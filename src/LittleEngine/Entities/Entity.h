@@ -1,10 +1,13 @@
 #pragma once
+#include <memory>
 #include <vector>
 #include "API.h"
-#include "Component.h"
+
 
 namespace LittleEngine
 {
+    struct Component;
+
     struct LE_ENTITIES_API Entity
     {
     public:
@@ -15,8 +18,12 @@ namespace LittleEngine
 
         Entity& operator=(const Entity& other) = delete;
         Entity& operator=(Entity&& other) = delete;
+
+        //This is better ?
+        std::vector<std::shared_ptr<Component>> components;
+        //Or this is better ?
+        // std::vector<Component> components;
         
-        std::vector<Component> components;
     };
 }
 
