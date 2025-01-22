@@ -6,7 +6,11 @@
 
 namespace LittleEngine
 {
-    System::System(const std::shared_ptr<EntityManager>& entityManager) : m_entityManager(entityManager)
+    void System::SystemInitialization(std::shared_ptr<EntityManager>& inEntityManager)
+    {
+    }
+
+    void System::SystemUpdate(std::shared_ptr<EntityManager>& inEntityManager)
     {
         
     }

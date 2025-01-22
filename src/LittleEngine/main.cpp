@@ -1,10 +1,13 @@
 #include <iostream>
+#include <memory>
 #include <SDL.h>
 #include <SDL_image.h>
 
 #include "Entities/EntityManager.h"
+#include "Entities/EntityWorld.h"
 #include "Physics/PhysicsSystem.h"
 #include "Rendering/RenderSystem.h"
+
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
@@ -25,26 +28,27 @@ int main(int argc, char** argv) {
     }
     else
     {
-        //We create the EntityManager first since all other systems depends on him
-        std::shared_ptr<LittleEngine::EntityManager> entityManager = std::make_shared<LittleEngine::EntityManager>();
-        
-        //Create and init systems
-        const std::shared_ptr<LittleEngine::PhysicsSystem> physicsSystem = std::make_shared<LittleEngine::PhysicsSystem>(entityManager);
-        physicsSystem->Init();
-        std::shared_ptr<LittleEngine::RenderSystem> renderSystem = std::make_shared<LittleEngine::RenderSystem>(gRenderer, gWindow);
-        renderSystem->Init();
-        
-        //Create bodies for test
-        LittleEngine::BodyCreationSettings bodyCreationSettings ={
-            {SCREEN_WIDTH/2.f, SCREEN_HEIGHT/3.f},
-            {300.0f, 0.0f}
-        };
-        // LE::BodyCreationSettings bodyCreationSettings2 ={
-        //     {SCREEN_WIDTH/2.f, 2*SCREEN_HEIGHT/3.f},
-        // };
-        
-        physicsSystem->CreateBody(bodyCreationSettings);
-        // physicsSystem->CreateBody(bodyCreationSettings2);
+        //We create the EntityWorld first since he contains de EntityManager and the Systems
+        std::shared_ptr<LittleEngine::EntityWorld> entityWorld = std::make_shared<LittleEngine::EntityWorld>();
+
+        //Something old lol
+                    // Create and init systems
+                    //  const std::shared_ptr<LittleEngine::PhysicsSystem> physicsSystem = std::make_shared<LittleEngine::PhysicsSystem>(entityManager);
+                    //  physicsSystem->Init();
+                    //  std::shared_ptr<LittleEngine::RenderSystem> renderSystem = std::make_shared<LittleEngine::RenderSystem>(gRenderer, gWindow);
+                    //  renderSystem->Init();
+                    //
+                    // Create bodies for test
+                    //  LittleEngine::BodyCreationSettings bodyCreationSettings ={
+                    //      {SCREEN_WIDTH/2.f, SCREEN_HEIGHT/3.f},
+                    //      {300.0f, 0.0f}
+                    //  };
+                    //  LE::BodyCreationSettings bodyCreationSettings2 ={
+                    //      {SCREEN_WIDTH/2.f, 2*SCREEN_HEIGHT/3.f},
+                    //  };
+                    //
+                    //  physicsSystem->CreateBody(bodyCreationSettings);
+                    //  physicsSystem->CreateBody(bodyCreationSettings2);
 
         //Time Variables
         double time = 0;
@@ -79,15 +83,19 @@ int main(int argc, char** argv) {
             while(accumulator >= fixedDeltaTime)
             {
                 //Update Physics system for as many steps as needed
-                physicsSystem->Update(fixedDeltaTime, gWindow);
+                // physicsSystem->Update(fixedDeltaTime, gWindow);
+                entityWorld->WorldFixedUpdate(fixedDeltaTime);
                 accumulator -= fixedDeltaTime;
                 time += fixedDeltaTime;
             }
+
+            //Update
+            entityWorld->WorldUpdate(frameDeltaTime);
             
             //Render Update : Passing in the body components to draw the bodies for the demo
             //Later should use internal shape components (linked with body components through an object)
-            renderSystem->Update(frameDeltaTime, physicsSystem->GetBodyComponents());
-            
+            // renderSystem->Update(frameDeltaTime, physicsSystem->GetBodyComponents());
+            entityWorld->WorldRenderUpdate();
         }
     }
     

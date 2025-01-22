@@ -14,15 +14,19 @@ namespace LittleEngine
     class LE_PHYSICS_API PhysicsSystem : public System
     {
     public:
-        PhysicsSystem() = delete;
-        PhysicsSystem(const std::shared_ptr<EntityManager>& entityManager);
+        
+    public:
+        PhysicsSystem() = default;
         PhysicsSystem(const PhysicsSystem& other) = delete;
         PhysicsSystem(PhysicsSystem&& other) = delete;
-        ~PhysicsSystem() = default;
+        ~PhysicsSystem() override = default;
 
         PhysicsSystem& operator=(const PhysicsSystem& other) = delete;
         PhysicsSystem& operator=(PhysicsSystem&& other) = delete;
 
+        void SystemInitialization(std::shared_ptr<EntityManager>& inEntityManager) override;
+        void SystemUpdate(std::shared_ptr<EntityManager>& inEntityManager) override;
+        
         void Init();
         void Update(float inDeltaTime, SDL_Window* inWindow) const;
 
@@ -37,7 +41,8 @@ namespace LittleEngine
 
         std::vector<std::shared_ptr<BodyComponent>> m_bodyComponents;
 
-        Vec2f m_gravity = {0, 9.81f};
+        // Vec2f m_gravity = {0, 9.81f};
+        const Vec2f GRAVITY = {0.0f,9.81f};
         
 #pragma endregion
 

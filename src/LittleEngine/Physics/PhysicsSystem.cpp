@@ -4,11 +4,23 @@
 #include <memory>
 
 #include "Collision/ShapeComponents/CircleComponent.h"
+#include "Entities/EntityManager.h"
+#include "Entities/Components/TransformComponent.h"
 
 namespace LittleEngine
 {
-    PhysicsSystem::PhysicsSystem(const std::shared_ptr<EntityManager>& entityManager) : System(entityManager)
+    void PhysicsSystem::SystemInitialization(std::shared_ptr<EntityManager>& inEntityManager)
     {
+        System::SystemInitialization(inEntityManager);
+
+        std::shared_ptr<Entity> entity = inEntityManager->CreateEntity();
+        inEntityManager->AddComponent<TransformComponent>(entity);
+    }
+
+    void PhysicsSystem::SystemUpdate(std::shared_ptr<EntityManager>& inEntityManager)
+    {
+        System::SystemUpdate(inEntityManager);
+        
     }
 
     void PhysicsSystem::Init()
@@ -18,26 +30,27 @@ namespace LittleEngine
 
     void PhysicsSystem::Update(float inDeltaTime, SDL_Window* inWindow) const
     {
-        for (const std::shared_ptr<BodyComponent>& bodyComponent : m_bodyComponents)
-        {
-            if(bodyComponent->mass <= 0) continue;
-            
-            //Reset force & calculate new force
-            bodyComponent->force = Vec2f::ZERO;
-            bodyComponent->force += m_gravity;
-            
-            //Calculate acceleration
-            Vec2f acceleration = bodyComponent->force / bodyComponent->mass; //replace this with body mass later
-            
-            //Calculate linear velocity
-            bodyComponent->linearVelocity = bodyComponent->linearVelocity + acceleration * inDeltaTime;
-            std::cout << bodyComponent->linearVelocity.y <<'\n';
+        //For old systems
+        // for (const std::shared_ptr<BodyComponent>& bodyComponent : m_bodyComponents)
+        // {
+        //     if(bodyComponent->mass <= 0) continue;
+        //     
+        //     //Reset force & calculate new force
+        //     bodyComponent->force = Vec2f::ZERO;
+        //     bodyComponent->force += m_gravity;
+        //     
+        //     //Calculate acceleration
+        //     Vec2f acceleration = bodyComponent->force / bodyComponent->mass; //replace this with body mass later
+        //     
+        //     //Calculate linear velocity
+        //     bodyComponent->linearVelocity = bodyComponent->linearVelocity + acceleration * inDeltaTime;
+        //     std::cout << bodyComponent->linearVelocity.y <<'\n';
+        //
+        //     //Calculate position
+        //     bodyComponent->pos = bodyComponent->pos + bodyComponent->linearVelocity * inDeltaTime;
+        // }
 
-            //Calculate position
-            bodyComponent->pos = bodyComponent->pos + bodyComponent->linearVelocity * inDeltaTime;
-        }
-
-        CollisionsWithWindow(inWindow);
+        // CollisionsWithWindow(inWindow);
         
     }
 

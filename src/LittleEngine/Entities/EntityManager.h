@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
+#include <memory>
 #include <vector>
-
 #include "API.h"
 #include "Entity.h"
 
@@ -19,7 +19,12 @@ namespace LittleEngine
         EntityManager& operator=(EntityManager&& other) = delete;
 
         std::shared_ptr<Entity> CreateEntity();
-        
+
+        template <typename T>
+        std::shared_ptr<T> CreateComponent();
+        template <typename T>
+        void AddComponent(std::shared_ptr<Entity> inOutEntity);
+
     private:
         //This ?
         std::vector<std::shared_ptr<Entity>> m_entities;
@@ -27,5 +32,9 @@ namespace LittleEngine
         //std::vector<Entity> m_entities;
         
     };
+
+    
 }
 
+//Include template last
+#include "EntityManager.tpp"
