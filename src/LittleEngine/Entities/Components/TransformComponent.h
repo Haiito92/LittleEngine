@@ -1,7 +1,14 @@
 #pragma once
+#include <memory>
+
 #include "Entities/Component.h"
 #include "API.h"
 #include "Core/Math/Vec2f.h"
+
+namespace LittleEngine
+{
+    class TypeLibrary;
+}
 
 namespace LittleEngine
 {
@@ -15,6 +22,8 @@ namespace LittleEngine
 
         TransformComponent& operator=(const TransformComponent& other) = delete;
         TransformComponent& operator=(TransformComponent&& other) = delete;
+
+        static void RegisterType(std::shared_ptr<TypeLibrary>& inOutTypeLibrary);
         
         Vec2f position = Vec2f::ZERO;
     };

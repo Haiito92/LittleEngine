@@ -1,10 +1,13 @@
 #include <iostream>
 #include <memory>
+#include <memory>
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include "Core/Reflection/TypeLibrary.h"
 #include "Entities/EntityManager.h"
 #include "Entities/EntityWorld.h"
+#include "Entities/Components/TransformComponent.h"
 #include "Physics/PhysicsSystem.h"
 #include "Rendering/RenderSystem.h"
 
@@ -28,6 +31,10 @@ int main(int argc, char** argv) {
     }
     else
     {
+        //We create a TypeLibrary to be able to do Reflection on classes
+        std::shared_ptr<LittleEngine::TypeLibrary> typeLibrary = std::make_shared<LittleEngine::TypeLibrary>();
+        LittleEngine::TransformComponent::RegisterType(typeLibrary);
+        
         //We create the EntityWorld first since he contains de EntityManager and the Systems
         std::shared_ptr<LittleEngine::EntityWorld> entityWorld = std::make_shared<LittleEngine::EntityWorld>();
 
