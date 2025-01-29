@@ -21,7 +21,7 @@ namespace LittleEngine
         std::shared_ptr<Entity> CreateEntity();
 
         template <typename T>
-        std::shared_ptr<T> CreateComponent();
+        std::shared_ptr<T> CreateComponent(const int inArrayIndex);
         template <typename T>
         void AddComponent(std::shared_ptr<Entity> inOutEntity);
 
@@ -30,7 +30,7 @@ namespace LittleEngine
         std::vector<std::shared_ptr<Entity>> m_entities;
         //Or this ?
         //std::vector<Entity> m_entities;
-        
+        std::vector<std::shared_ptr<std::vector<std::shared_ptr<Component>>>> m_componentVectors;
     };
 
     

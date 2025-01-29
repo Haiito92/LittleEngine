@@ -13,14 +13,17 @@ namespace LittleEngine
     {
         System::SystemInitialization(inEntityManager);
 
-        std::shared_ptr<Entity> entity = inEntityManager->CreateEntity();
-        inEntityManager->AddComponent<TransformComponent>(entity);
+        std::shared_ptr<Entity> entityFirst = inEntityManager->CreateEntity();
+        inEntityManager->AddComponent<TransformComponent>(entityFirst);
+
+        std::shared_ptr<Entity> entitySecond = inEntityManager->CreateEntity();
+        inEntityManager->AddComponent<TransformComponent>(entitySecond);
     }
 
     void PhysicsSystem::SystemUpdate(std::shared_ptr<EntityManager>& inEntityManager)
     {
         System::SystemUpdate(inEntityManager);
-        
+
     }
 
     void PhysicsSystem::Init()

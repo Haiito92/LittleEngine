@@ -7,7 +7,7 @@
 
 namespace LittleEngine
 {
-    class TypeLibrary;
+    class TypeRegistry;
 }
 
 namespace LittleEngine
@@ -23,8 +23,6 @@ namespace LittleEngine
         TransformComponent& operator=(const TransformComponent& other) = delete;
         TransformComponent& operator=(TransformComponent&& other) = delete;
 
-        static void RegisterType(std::shared_ptr<TypeLibrary>& inOutTypeLibrary);
-        
         Vec2f position = Vec2f::ZERO;
     };
 }
