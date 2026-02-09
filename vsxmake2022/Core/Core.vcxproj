@@ -109,13 +109,12 @@ xmake version 3.0.4+HEAD.347e268f3
   <Import Project="$(XmakeProgramDir)\scripts\vsxmake\vsproj\Xmake.props" />
   <ItemGroup>
     <ClInclude Include="$(XmakeProjectDir)\inc\Little\Engine\Core\Export.hpp" />
-    <ClInclude Include="$(XmakeProjectDir)\inc\Little\Engine\Core\Window.hpp" />
 
 
   </ItemGroup>
   <ItemGroup>
 
-    <ClCompile Include="$(XmakeProjectDir)\src\Little\Engine\Core\Window.cpp">
+    <ClCompile Include="$(XmakeProjectDir)\src\Little\Engine\Core\main.cpp">
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
 

@@ -1,3 +1,10 @@
+
+------------------ Tasks ------------------
+
+includes("tasks/**.lua")
+
+------------------ Rules ------------------
+
 add_rules("mode.debug", "mode.release")
 add_requires("fmt")
 
@@ -11,6 +18,7 @@ add_includedirs("inc")
 target("ExtraFiles")
     set_kind("phony")
     add_extrafiles("README.md", ".gitignore")
+    add_extrafiles("tasks/**.lua")
 
 --------------- Engine ---------------
 

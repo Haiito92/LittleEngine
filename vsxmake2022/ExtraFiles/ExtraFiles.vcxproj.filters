@@ -12,6 +12,9 @@ xmake version 3.0.4+HEAD.347e268f3
     <Filter Include="Properties">
       <UniqueIdentifier>{CC7C6180-942D-056E-3227-E6A2B3FB19CD}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tasks">
+      <UniqueIdentifier>{5FCBDA53-A731-429D-8233-1CD610CAC8B1}</UniqueIdentifier>
+    </Filter>
 
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +40,9 @@ xmake version 3.0.4+HEAD.347e268f3
     </ClInclude>
     <ClInclude Include="$(XmakeProjectDir)\README.md">
       <Filter><!-- nil --></Filter>
+    </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\tasks\create_class.lua">
+      <Filter>tasks</Filter>
     </ClInclude>
 
 
