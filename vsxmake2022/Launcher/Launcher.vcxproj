@@ -57,7 +57,7 @@ xmake version 3.0.4+HEAD.347e268f3
     <XmakeConfigFlags></XmakeConfigFlags>
     <XmakeIncludeDirs></XmakeIncludeDirs>
     <XmakeForceIncludes></XmakeForceIncludes>
-    <XmakeLinkDirs></XmakeLinkDirs>
+    <XmakeLinkDirs>$(XmakeProjectDir)\build\windows\x64\debug</XmakeLinkDirs>
     <XmakeSourceDirs></XmakeSourceDirs>
     <XmakePrecompiledHeader><!-- nil --></XmakePrecompiledHeader>
     <XmakeCFlags></XmakeCFlags>
@@ -83,7 +83,7 @@ xmake version 3.0.4+HEAD.347e268f3
     <XmakeConfigFlags></XmakeConfigFlags>
     <XmakeIncludeDirs></XmakeIncludeDirs>
     <XmakeForceIncludes></XmakeForceIncludes>
-    <XmakeLinkDirs></XmakeLinkDirs>
+    <XmakeLinkDirs>$(XmakeProjectDir)\build\windows\x64\release</XmakeLinkDirs>
     <XmakeSourceDirs></XmakeSourceDirs>
     <XmakePrecompiledHeader><!-- nil --></XmakePrecompiledHeader>
     <XmakeCFlags></XmakeCFlags>
@@ -130,6 +130,9 @@ xmake version 3.0.4+HEAD.347e268f3
 
   </ItemGroup>
   <!-- <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.vcxproj">
+      <Project>{28BADE4B-ACF5-4E29-BC75-898670B6C78F}</Project>
+    </ProjectReference>
 
   </ItemGroup> -->
   <Import Project="$(XmakeProgramDir)\scripts\vsxmake\vsproj\Xmake.targets" />
