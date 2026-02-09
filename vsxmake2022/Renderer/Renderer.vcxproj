@@ -23,13 +23,13 @@ xmake version 3.0.4+HEAD.347e268f3
 
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{19FD8E9C-D5C4-4D6B-A33C-CFDD9D23E188}</ProjectGuid>
+    <ProjectGuid>{DC9734EC-8F20-46FD-B345-BFAD5B9D80B8}</ProjectGuid>
     <Configuration Condition="'$(Configuration)' == ''">release</Configuration>
     <Platform Condition="'$(Platform)' == ''">Win32</Platform>
     <XmakeScriptDir>..\..</XmakeScriptDir>
     <XmakeProjectDir>..\..</XmakeProjectDir>
     <XmakeProjectFile><!-- nil --></XmakeProjectFile>
-    <XmakeTarget>Launcher</XmakeTarget>
+    <XmakeTarget>Renderer</XmakeTarget>
   </PropertyGroup>
   <PropertyGroup Label="XmakeProgram">
     <XmakeProgramDir Condition="'$(XmakeProgramDir)' == ''">$(XMAKE_PROGRAM_DIR)</XmakeProgramDir>
@@ -39,14 +39,14 @@ xmake version 3.0.4+HEAD.347e268f3
   </PropertyGroup>
   <Import Project="$(XmakeProgramDir)\scripts\vsxmake\vsproj\Xmake.Defaults.props" />
   <PropertyGroup Label="XmakeConfig" Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
-    <XmakeBasename>Launcher</XmakeBasename>
-    <XmakeFilename>Launcher.exe</XmakeFilename>
+    <XmakeBasename>Renderer</XmakeBasename>
+    <XmakeFilename>Renderer.lib</XmakeFilename>
     <XmakeMode>debug</XmakeMode>
     <XmakePlat>windows</XmakePlat>
     <XmakeArch>x64</XmakeArch>
-    <XmakeKind>binary</XmakeKind>
+    <XmakeKind>static</XmakeKind>
     <XmakeDefault>true</XmakeDefault>
-    <XmakeDefines></XmakeDefines>
+    <XmakeDefines>LE_RENDERER_COMPILE</XmakeDefines>
     <XmakeLanguages>cxx20</XmakeLanguages>
     <XmakeSubSystem>console</XmakeSubSystem>
     <XmakeCudaVersion><!-- nil --></XmakeCudaVersion>
@@ -57,7 +57,7 @@ xmake version 3.0.4+HEAD.347e268f3
     <XmakeConfigFlags></XmakeConfigFlags>
     <XmakeIncludeDirs>$(XmakeProjectDir)\inc</XmakeIncludeDirs>
     <XmakeForceIncludes></XmakeForceIncludes>
-    <XmakeLinkDirs>$(XmakeProjectDir)\build\windows\x64\debug</XmakeLinkDirs>
+    <XmakeLinkDirs></XmakeLinkDirs>
     <XmakeSourceDirs></XmakeSourceDirs>
     <XmakePrecompiledHeader><!-- nil --></XmakePrecompiledHeader>
     <XmakeCFlags></XmakeCFlags>
@@ -65,14 +65,14 @@ xmake version 3.0.4+HEAD.347e268f3
     <XmakeCXXFlags></XmakeCXXFlags>
   </PropertyGroup>
   <PropertyGroup Label="XmakeConfig" Condition="'$(Configuration)|$(Platform)'=='release|x64'">
-    <XmakeBasename>Launcher</XmakeBasename>
-    <XmakeFilename>Launcher.exe</XmakeFilename>
+    <XmakeBasename>Renderer</XmakeBasename>
+    <XmakeFilename>Renderer.lib</XmakeFilename>
     <XmakeMode>release</XmakeMode>
     <XmakePlat>windows</XmakePlat>
     <XmakeArch>x64</XmakeArch>
-    <XmakeKind>binary</XmakeKind>
+    <XmakeKind>static</XmakeKind>
     <XmakeDefault>true</XmakeDefault>
-    <XmakeDefines></XmakeDefines>
+    <XmakeDefines>LE_RENDERER_COMPILE</XmakeDefines>
     <XmakeLanguages>cxx20</XmakeLanguages>
     <XmakeSubSystem>console</XmakeSubSystem>
     <XmakeCudaVersion><!-- nil --></XmakeCudaVersion>
@@ -83,7 +83,7 @@ xmake version 3.0.4+HEAD.347e268f3
     <XmakeConfigFlags></XmakeConfigFlags>
     <XmakeIncludeDirs>$(XmakeProjectDir)\inc</XmakeIncludeDirs>
     <XmakeForceIncludes></XmakeForceIncludes>
-    <XmakeLinkDirs>$(XmakeProjectDir)\build\windows\x64\release</XmakeLinkDirs>
+    <XmakeLinkDirs></XmakeLinkDirs>
     <XmakeSourceDirs></XmakeSourceDirs>
     <XmakePrecompiledHeader><!-- nil --></XmakePrecompiledHeader>
     <XmakeCFlags></XmakeCFlags>
@@ -108,12 +108,13 @@ xmake version 3.0.4+HEAD.347e268f3
 
   <Import Project="$(XmakeProgramDir)\scripts\vsxmake\vsproj\Xmake.props" />
   <ItemGroup>
+    <ClInclude Include="$(XmakeProjectDir)\inc\Little\Engine\Renderer\Export.hpp" />
 
 
   </ItemGroup>
   <ItemGroup>
 
-    <ClCompile Include="$(XmakeProjectDir)\src\Little\Launcher\main.cpp">
+    <ClCompile Include="$(XmakeProjectDir)\src\Little\Engine\Renderer\main.cpp">
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
 
@@ -130,12 +131,6 @@ xmake version 3.0.4+HEAD.347e268f3
 
   </ItemGroup>
   <!-- <ItemGroup>
-    <ProjectReference Include="..\Core\Core.vcxproj">
-      <Project>{69FAA792-C2C7-4B7D-8AAF-F84E1D1B216E}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Renderer\Renderer.vcxproj">
-      <Project>{DC9734EC-8F20-46FD-B345-BFAD5B9D80B8}</Project>
-    </ProjectReference>
 
   </ItemGroup> -->
   <Import Project="$(XmakeProgramDir)\scripts\vsxmake\vsproj\Xmake.targets" />

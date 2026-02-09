@@ -55,7 +55,7 @@ xmake version 3.0.4+HEAD.347e268f3
     <XmakeRunEnvs><!-- nil --></XmakeRunEnvs>
     <XmakeRunArgs><!-- nil --></XmakeRunArgs>
     <XmakeConfigFlags></XmakeConfigFlags>
-    <XmakeIncludeDirs></XmakeIncludeDirs>
+    <XmakeIncludeDirs>$(XmakeProjectDir)\inc</XmakeIncludeDirs>
     <XmakeForceIncludes></XmakeForceIncludes>
     <XmakeLinkDirs></XmakeLinkDirs>
     <XmakeSourceDirs></XmakeSourceDirs>
@@ -81,7 +81,7 @@ xmake version 3.0.4+HEAD.347e268f3
     <XmakeRunEnvs><!-- nil --></XmakeRunEnvs>
     <XmakeRunArgs><!-- nil --></XmakeRunArgs>
     <XmakeConfigFlags></XmakeConfigFlags>
-    <XmakeIncludeDirs></XmakeIncludeDirs>
+    <XmakeIncludeDirs>$(XmakeProjectDir)\inc</XmakeIncludeDirs>
     <XmakeForceIncludes></XmakeForceIncludes>
     <XmakeLinkDirs></XmakeLinkDirs>
     <XmakeSourceDirs></XmakeSourceDirs>
