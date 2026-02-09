@@ -44,6 +44,9 @@ xmake version 3.0.4+HEAD.347e268f3
     <ClInclude Include="$(XmakeProjectDir)\tasks\create_class.lua">
       <Filter>tasks</Filter>
     </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\xmake.lua">
+      <Filter><!-- nil --></Filter>
+    </ClInclude>
 
 
   </ItemGroup>

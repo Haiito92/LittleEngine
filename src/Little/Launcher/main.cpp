@@ -1,6 +1,9 @@
 #include <iostream>
+#include <Little/Engine/Core/Window.hpp>
 
 int main(int argc, char** argv) {
-    std::cout << "hello world!" << std::endl;
+
+    LE::Window window;
+    
     return 0;
 }
