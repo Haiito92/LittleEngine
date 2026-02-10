@@ -1,7 +1,8 @@
 
------------------- Tasks ------------------
+------------------ Lua Includes ------------------
 
 includes("tasks/**.lua")
+includes("functions.lua")
 
 ------------------ Rules ------------------
 
@@ -18,7 +19,8 @@ add_includedirs("inc")
 target("ExtraFiles")
     set_kind("phony")
     add_extrafiles("README.md", ".gitignore")
-    add_extrafiles("tasks/**.lua", "xmake.lua")
+    add_extrafiles("tasks/**.lua", "xmake.lua", "functions.lua")
+
 
 --------------- Engine ---------------
 
@@ -26,25 +28,32 @@ local static = true
 
 engineModules = {
     Core = {
+        PublicPkg = {"fmt"}
+        },
+    Renderer = {
         }
     }
 
 for name, module in pairs(engineModules) do
     
-    target(name)
+    target(name, function()
         set_kind(static and "static" or "shared")
+        set_group("Engine")
             
-        if static then
-            add_defines("LE_STATIC")
+        add_common_defines(static)
+        add_defines("LE_" .. name:upper() .. "_COMPILE")
+    
+        if module.PublicPkg then
+            for _, pkg in ipairs(module.PublicPkg) do
+                add_packages(pkg, {public = true})
+            end
         end
     
-        set_group("Engine")
-        
-        add_defines("LE_" .. name:upper() .. "_COMPILE")
-        
         add_headerfiles("inc/(Little/Engine/" .. name .. "/**.hpp)")
         add_headerfiles("inc/(Little/Engine/" .. name .. "/**.inl)")
         add_files("src/Little/Engine/" .. name .. "/**.cpp")
+        
+    end)
 end
     
 --------------- Launcher ---------------    
@@ -53,9 +62,7 @@ target("Launcher")
     set_kind("binary")    
     set_group("Launcher")
     
-    if static then
-        add_defines("LE_STATIC")
-    end
+    add_common_defines(static)
     
     for name, module in pairs(engineModules) do
         add_deps(name)        

@@ -46,7 +46,7 @@ xmake version 3.0.4+HEAD.347e268f3
     <XmakeArch>x64</XmakeArch>
     <XmakeKind>phony</XmakeKind>
     <XmakeDefault>true</XmakeDefault>
-    <XmakeDefines></XmakeDefines>
+    <XmakeDefines>LE_STATIC</XmakeDefines>
     <XmakeLanguages>cxx20</XmakeLanguages>
     <XmakeSubSystem><!-- nil --></XmakeSubSystem>
     <XmakeCudaVersion><!-- nil --></XmakeCudaVersion>
@@ -72,7 +72,7 @@ xmake version 3.0.4+HEAD.347e268f3
     <XmakeArch>x64</XmakeArch>
     <XmakeKind>phony</XmakeKind>
     <XmakeDefault>true</XmakeDefault>
-    <XmakeDefines></XmakeDefines>
+    <XmakeDefines>LE_STATIC</XmakeDefines>
     <XmakeLanguages>cxx20</XmakeLanguages>
     <XmakeSubSystem><!-- nil --></XmakeSubSystem>
     <XmakeCudaVersion><!-- nil --></XmakeCudaVersion>
@@ -110,6 +110,7 @@ xmake version 3.0.4+HEAD.347e268f3
   <ItemGroup>
     <ClInclude Include="$(XmakeProjectDir)\.gitignore" />
     <ClInclude Include="$(XmakeProjectDir)\README.md" />
+    <ClInclude Include="$(XmakeProjectDir)\functions.lua" />
     <ClInclude Include="$(XmakeProjectDir)\tasks\create_class.lua" />
     <ClInclude Include="$(XmakeProjectDir)\xmake.lua" />
 

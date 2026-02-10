@@ -1,9 +1,23 @@
 #include <iostream>
+#include <Little/Engine/Core/Core.hpp>
 #include <Little/Engine/Core/Window.hpp>
+#include <fmt/printf.h>
 
 int main(int argc, char** argv) {
 
-    LE::Window window;
+    try
+    {
+        LE::Core core;
+        LE::Window window;
+    }
+    catch (const std::exception& e)
+    {
+        fmt::print("Caught standard exception: {}\n", e.what());
+    }
+    catch (...)
+    {
+        fmt::print("Caught unknow exception.\n");
+    }
     
-    return 0;
+    return EXIT_SUCCESS;
 }
