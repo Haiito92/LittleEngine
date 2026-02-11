@@ -8,7 +8,7 @@ int main(int argc, char** argv) {
     try
     {
         LE::Core core;
-        LE::Window window;
+        LE::Window window("Launcher", 1280, 720);
     }
     catch (const std::exception& e)
     {

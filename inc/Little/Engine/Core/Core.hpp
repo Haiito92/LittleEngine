@@ -20,6 +20,8 @@ namespace LE {
         Core& operator=(Core&& other) = delete;
         
     private:
+
+        void RegisterWindowClass();
     };
 
 }

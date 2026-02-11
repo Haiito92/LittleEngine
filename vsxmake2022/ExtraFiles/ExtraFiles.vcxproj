@@ -46,7 +46,7 @@ xmake version 3.0.4+HEAD.347e268f3
     <XmakeArch>x64</XmakeArch>
     <XmakeKind>phony</XmakeKind>
     <XmakeDefault>true</XmakeDefault>
-    <XmakeDefines>LE_STATIC</XmakeDefines>
+    <XmakeDefines></XmakeDefines>
     <XmakeLanguages>cxx20</XmakeLanguages>
     <XmakeSubSystem><!-- nil --></XmakeSubSystem>
     <XmakeCudaVersion><!-- nil --></XmakeCudaVersion>
@@ -72,7 +72,7 @@ xmake version 3.0.4+HEAD.347e268f3
     <XmakeArch>x64</XmakeArch>
     <XmakeKind>phony</XmakeKind>
     <XmakeDefault>true</XmakeDefault>
-    <XmakeDefines>LE_STATIC</XmakeDefines>
+    <XmakeDefines></XmakeDefines>
     <XmakeLanguages>cxx20</XmakeLanguages>
     <XmakeSubSystem><!-- nil --></XmakeSubSystem>
     <XmakeCudaVersion><!-- nil --></XmakeCudaVersion>
