@@ -11,10 +11,12 @@ namespace LE {
             0,
             s_className.c_str(),
             title.c_str(),
-            0,
-            0, 0,
+            WS_OVERLAPPEDWINDOW,
+            CW_USEDEFAULT, CW_USEDEFAULT,
             width, height,
-            nullptr, nullptr, nullptr, this
+            nullptr, nullptr,
+            GetModuleHandle(nullptr),
+            this
             );
 
         if (m_hWnd == nullptr)
@@ -67,6 +69,26 @@ namespace LE {
     int64_t Window::WindowProc(void* hWnd, uint32_t msg, uint64_t wParam, int64_t lParam)
     {
         const HWND tempHWnd = static_cast<HWND>(hWnd);
+
+        switch (msg)
+        {
+            case WM_PAINT:
+            {
+                PAINTSTRUCT ps;
+                HDC hdc = BeginPaint(tempHWnd, &ps);
+
+                // All painting occurs here, between BeginPaint and EndPaint.
+                FillRect(hdc, &ps.rcPaint, reinterpret_cast<HBRUSH>(COLOR_WINDOW + 1));
+                EndPaint(tempHWnd, &ps);
+
+                return 0;
+            }
+            case WM_DESTROY:
+            {
+                PostQuitMessage(0);
+                return 0;
+            }
+        }
         
         return DefWindowProc(tempHWnd, msg, wParam, lParam);
     }

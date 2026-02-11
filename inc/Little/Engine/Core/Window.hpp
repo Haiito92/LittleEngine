@@ -16,7 +16,6 @@ namespace LE {
     friend Core;
 
     public:
-
         Window() = delete;
         Window(const std::string& title, int width, int height);
         Window(const Window& other) = delete;
