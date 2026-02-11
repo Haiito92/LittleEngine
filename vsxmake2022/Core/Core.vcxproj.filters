@@ -59,6 +59,9 @@ xmake version 3.0.4+HEAD.347e268f3
     <ClInclude Include="$(XmakeProjectDir)\inc\Little\Engine\Core\Core.hpp">
       <Filter>inc\Little\Engine\Core</Filter>
     </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\inc\Little\Engine\Core\CoreTypes.hpp">
+      <Filter>inc\Little\Engine\Core</Filter>
+    </ClInclude>
     <ClInclude Include="$(XmakeProjectDir)\inc\Little\Engine\Core\Export.hpp">
       <Filter>inc\Little\Engine\Core</Filter>
     </ClInclude>
@@ -71,6 +74,9 @@ xmake version 3.0.4+HEAD.347e268f3
   <ItemGroup>
 
     <ClCompile Include="$(XmakeProjectDir)\src\Little\Engine\Core\Core.cpp">
+      <Filter>src\Little\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="$(XmakeProjectDir)\src\Little\Engine\Core\CoreTypes.cpp">
       <Filter>src\Little\Engine\Core</Filter>
     </ClCompile>
     <ClCompile Include="$(XmakeProjectDir)\src\Little\Engine\Core\Window.cpp">

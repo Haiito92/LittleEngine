@@ -2,8 +2,7 @@
 #include <Little/Engine/Core/Core.hpp>
 #include <Windows.h>
 #include <fmt/format.h>
-
-#include "Little/Engine/Core/Window.hpp"
+#include <Little/Engine/Core/Window.hpp>
 
 namespace LE {
 

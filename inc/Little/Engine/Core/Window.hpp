@@ -5,6 +5,7 @@
 
 #include <string>
 #include <Little/Engine/Core/Export.hpp>
+#include <Little/Engine/Core/CoreTypes.hpp>
 
 namespace LE {
 
@@ -13,7 +14,7 @@ namespace LE {
     class LE_CORE_API Window 
     {
     friend Core;
-        
+
     public:
     
         Window(const std::string& title, int width, int height);
@@ -28,8 +29,8 @@ namespace LE {
     private:
         void* m_hWnd;
 
-        int64_t WindowProc(void* hWnd, uint32_t msg, uint64_t wParam, int64_t lParam);
-        static int64_t __stdcall WindowProcStatic(void* hWnd, uint32_t msg, uint64_t wParam, int64_t lParam);
+        I64 WindowProc(void* hWnd, U32 msg, U64 wParam, I64 lParam);
+        static I64 __stdcall WindowProcStatic(void* hWnd, U32 msg, U64 wParam, I64 lParam);
         
         const static std::string s_className;
     };
