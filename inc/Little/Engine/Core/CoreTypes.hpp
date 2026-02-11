@@ -21,6 +21,12 @@ namespace LE {
     using F32 = float;
     using F64 = double;
 
+    // Macro
+#ifdef _WIN32
+    #define STD_CALL __stdcall 
+#else
+    #define STD_CALL
+#endif
 }
 
 
