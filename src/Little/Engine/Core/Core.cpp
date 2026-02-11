@@ -19,7 +19,7 @@ namespace LE {
         WNDCLASSEX wc;
         wc.cbSize = sizeof(WNDCLASSEX);
         wc.style = 0;
-        wc.lpfnWndProc = Window::WindowProcStatic;
+        wc.lpfnWndProc = reinterpret_cast<WNDPROC>(Window::WindowProcStatic);
         wc.cbClsExtra = 0;
         wc.cbWndExtra = 0;
         wc.hInstance = nullptr;

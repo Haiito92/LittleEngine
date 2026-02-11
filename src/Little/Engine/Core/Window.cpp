@@ -20,14 +20,14 @@ namespace LE {
         if (m_hWnd == nullptr)
             throw std::runtime_error(fmt::format("Failed to create window: {}", GetLastError()));
 
-        ShowWindow(m_hWnd, SW_SHOWNORMAL);
+        ShowWindow(static_cast<HWND>(m_hWnd), SW_SHOWNORMAL);
     }
 
     Window::~Window()
     {
         if (m_hWnd != nullptr)
         {
-            DestroyWindow(m_hWnd);
+            DestroyWindow(static_cast<HWND>(m_hWnd));
         }
     }
 
@@ -36,7 +36,7 @@ namespace LE {
         return s_className;
     }
 
-    int64_t Window::WindowProcStatic(HWND hWnd, uint32_t msg, uint64_t wParam, int64_t lParam)
+    int64_t Window::WindowProcStatic(void* hWnd, uint32_t msg, uint64_t wParam, int64_t lParam)
     {
         Window* window = nullptr;
 
@@ -44,22 +44,22 @@ namespace LE {
         {
             CREATESTRUCT* createStruct = reinterpret_cast<CREATESTRUCT*>(lParam);
             window = static_cast<Window*>(createStruct->lpCreateParams);
-            SetWindowLongPtr(hWnd, GWLP_USERDATA, reinterpret_cast<LONG>(window));
+            SetWindowLongPtr(static_cast<HWND>(hWnd), GWLP_USERDATA, reinterpret_cast<LONG>(window));
         }
         else
         {
-            window = reinterpret_cast<Window*>(GetWindowLongPtr(hWnd, GWLP_USERDATA));
+            window = reinterpret_cast<Window*>(GetWindowLongPtr(static_cast<HWND>(hWnd), GWLP_USERDATA));
         }
 
         if (window)
             return window->WindowProc(hWnd, msg, wParam, lParam);
         
-        return DefWindowProc(hWnd, msg, wParam, lParam);
+        return DefWindowProc(static_cast<HWND>(hWnd), msg, wParam, lParam);
     }
 
-    int64_t Window::WindowProc(HWND hWnd, uint32_t msg, uint64_t wParam, int64_t lParam)
+    int64_t Window::WindowProc(void* hWnd, uint32_t msg, uint64_t wParam, int64_t lParam)
     {
-        return DefWindowProc(hWnd, msg, wParam, lParam);
+        return DefWindowProc(static_cast<HWND>(hWnd), msg, wParam, lParam);
     }
 
     const std::string Window::s_className = "LittleEngineWindow";

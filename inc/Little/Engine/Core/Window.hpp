@@ -3,15 +3,17 @@
 #ifndef LE_CORE_WINDOW_HPP
 #define LE_CORE_WINDOW_HPP
 
-#include <Windows.h>
 #include <string>
 #include <Little/Engine/Core/Export.hpp>
 
-
 namespace LE {
 
+    class Core;
+    
     class LE_CORE_API Window 
     {
+    friend Core;
+        
     public:
     
         Window(const std::string& title, int width, int height);
@@ -23,11 +25,11 @@ namespace LE {
         Window& operator=(Window&& other) = delete;
 
         static const std::string& GetWindowClassName();
-        static int64_t __stdcall WindowProcStatic(HWND hWnd, uint32_t msg, uint64_t wParam, int64_t lParam);
     private:
-        HWND m_hWnd;
+        void* m_hWnd;
 
-        int64_t WindowProc(HWND hWnd, uint32_t msg, uint64_t wParam, int64_t lParam);
+        int64_t WindowProc(void* hWnd, uint32_t msg, uint64_t wParam, int64_t lParam);
+        static int64_t __stdcall WindowProcStatic(void* hWnd, uint32_t msg, uint64_t wParam, int64_t lParam);
         
         const static std::string s_className;
     };
