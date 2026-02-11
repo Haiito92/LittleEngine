@@ -40,26 +40,35 @@ namespace LE {
     {
         Window* window = nullptr;
 
+        const HWND tempHWnd = static_cast<HWND>(hWnd);
+        
         if (msg == WM_CREATE)
         {
             CREATESTRUCT* createStruct = reinterpret_cast<CREATESTRUCT*>(lParam);
             window = static_cast<Window*>(createStruct->lpCreateParams);
-            SetWindowLongPtr(static_cast<HWND>(hWnd), GWLP_USERDATA, reinterpret_cast<LONG>(window));
+            SetWindowLongPtr(tempHWnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(window));
         }
         else
         {
-            window = reinterpret_cast<Window*>(GetWindowLongPtr(static_cast<HWND>(hWnd), GWLP_USERDATA));
+            window = reinterpret_cast<Window*>(GetWindowLongPtr(tempHWnd, GWLP_USERDATA));
         }
 
         if (window)
             return window->WindowProc(hWnd, msg, wParam, lParam);
         
-        return DefWindowProc(static_cast<HWND>(hWnd), msg, wParam, lParam);
+        return DefWindowProc(tempHWnd, msg, wParam, lParam);
+    }
+
+    const void* Window::GetHandle() const
+    {
+        return m_hWnd;
     }
 
     int64_t Window::WindowProc(void* hWnd, uint32_t msg, uint64_t wParam, int64_t lParam)
     {
-        return DefWindowProc(static_cast<HWND>(hWnd), msg, wParam, lParam);
+        const HWND tempHWnd = static_cast<HWND>(hWnd);
+        
+        return DefWindowProc(tempHWnd, msg, wParam, lParam);
     }
 
     const std::string Window::s_className = "LittleEngineWindow";

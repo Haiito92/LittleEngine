@@ -26,11 +26,14 @@ namespace LE {
         Window& operator=(const Window& other) = delete;
         Window& operator=(Window&& other) = delete;
 
-        static const std::string& GetWindowClassName();
+        const void* GetHandle() const;
+        
     private:
         void* m_hWnd;
 
         I64 WindowProc(void* hWnd, U32 msg, U64 wParam, I64 lParam);
+        
+        static const std::string& GetWindowClassName();
         static I64 STD_CALL WindowProcStatic(void* hWnd, U32 msg, U64 wParam, I64 lParam);
         
         const static std::string s_className;
