@@ -22,6 +22,8 @@ namespace LE {
         if (m_hWnd == nullptr)
             throw std::runtime_error(fmt::format("Failed to create window: {}", GetLastError()));
 
+        SetWindowLongPtr(static_cast<HWND>(m_hWnd), GWLP_USERDATA, reinterpret_cast<LONG_PTR>(this));
+        
         ShowWindow(static_cast<HWND>(m_hWnd), SW_SHOWNORMAL);
     }
 
@@ -43,17 +45,8 @@ namespace LE {
         Window* window = nullptr;
 
         const HWND tempHWnd = static_cast<HWND>(hWnd);
-        
-        if (msg == WM_CREATE)
-        {
-            CREATESTRUCT* createStruct = reinterpret_cast<CREATESTRUCT*>(lParam);
-            window = static_cast<Window*>(createStruct->lpCreateParams);
-            SetWindowLongPtr(tempHWnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(window));
-        }
-        else
-        {
-            window = reinterpret_cast<Window*>(GetWindowLongPtr(tempHWnd, GWLP_USERDATA));
-        }
+            
+        window = reinterpret_cast<Window*>(GetWindowLongPtr(tempHWnd, GWLP_USERDATA));
 
         if (window)
             return window->WindowProc(hWnd, msg, wParam, lParam);
