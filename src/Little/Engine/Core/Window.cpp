@@ -27,6 +27,15 @@ namespace LE {
         ShowWindow(static_cast<HWND>(m_hWnd), SW_SHOWNORMAL);
     }
 
+    Window::Window(Window&& other) noexcept:
+    m_hWnd(std::exchange(other.m_hWnd, nullptr))
+    {
+        if (other.m_hWnd == nullptr && m_hWnd != nullptr)
+        {
+            fmt::print("Successful move of window");
+        }
+    }
+
     Window::~Window()
     {
         if (m_hWnd != nullptr)
@@ -52,6 +61,16 @@ namespace LE {
             return window->WindowProc(hWnd, msg, wParam, lParam);
         
         return DefWindowProc(tempHWnd, msg, wParam, lParam);
+    }
+
+    Window& Window::operator=(Window&& other) noexcept
+    {
+        if (this != &other)
+        {
+            std::swap(m_hWnd, other.m_hWnd);
+        }
+        
+        return *this;
     }
 
     const void* Window::GetHandle() const

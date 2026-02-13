@@ -4,6 +4,8 @@
 #define LE_CORE_CORE_HPP
 
 #include <Little/Engine/Core/Export.hpp>
+#include <Little/Engine/Core/WindowManager.hpp>
+
 
 namespace LE {
 
@@ -18,10 +20,15 @@ namespace LE {
         
         Application& operator=(const Application& other) = delete;
         Application& operator=(Application&& other) = delete;
+
+        int Run();
+        
+        WindowManager& GetWindowManager();
+        const WindowManager& GetWindowManager() const;
         
     private:
 
-        void RegisterWindowClass();
+        WindowManager m_windowManager;
     };
 
 }

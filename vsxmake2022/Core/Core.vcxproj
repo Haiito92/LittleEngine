@@ -108,19 +108,23 @@ xmake version 3.0.4+HEAD.347e268f3
 
   <Import Project="$(XmakeProgramDir)\scripts\vsxmake\vsproj\Xmake.props" />
   <ItemGroup>
-    <ClInclude Include="..\..\inc\Little\Engine\Core\Application.hpp" />
+    <ClInclude Include="$(XmakeProjectDir)\inc\Little\Engine\Core\Application.hpp" />
     <ClInclude Include="$(XmakeProjectDir)\inc\Little\Engine\Core\CoreTypes.hpp" />
     <ClInclude Include="$(XmakeProjectDir)\inc\Little\Engine\Core\Export.hpp" />
     <ClInclude Include="$(XmakeProjectDir)\inc\Little\Engine\Core\Window.hpp" />
+    <ClInclude Include="$(XmakeProjectDir)\inc\Little\Engine\Core\WindowManager.hpp" />
 
 
   </ItemGroup>
   <ItemGroup>
 
-    <ClCompile Include="..\..\src\Little\Engine\Core\Application.cpp">
+    <ClCompile Include="$(XmakeProjectDir)\src\Little\Engine\Core\Application.cpp">
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <ClCompile Include="$(XmakeProjectDir)\src\Little\Engine\Core\Window.cpp">
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="$(XmakeProjectDir)\src\Little\Engine\Core\WindowManager.cpp">
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
 

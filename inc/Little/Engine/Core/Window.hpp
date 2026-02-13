@@ -9,21 +9,21 @@
 
 namespace LE {
 
-    class Application;
+    class WindowManager;
     
     class LE_CORE_API Window 
     {
-    friend Application;
+    friend WindowManager;
 
     public:
         Window() = delete;
         Window(const std::string& title, int width, int height);
         Window(const Window& other) = delete;
-        Window(Window&& other) = delete;
+        Window(Window&& other) noexcept;
         ~Window();
         
         Window& operator=(const Window& other) = delete;
-        Window& operator=(Window&& other) = delete;
+        Window& operator=(Window&& other) noexcept;
 
         const void* GetHandle() const;
         
