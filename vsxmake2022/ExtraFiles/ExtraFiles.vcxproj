@@ -110,6 +110,7 @@ xmake version 3.0.4+HEAD.347e268f3
   <ItemGroup>
     <ClInclude Include="$(XmakeProjectDir)\.gitignore" />
     <ClInclude Include="$(XmakeProjectDir)\README.md" />
+    <ClInclude Include="$(XmakeProjectDir)\TODO.txt" />
     <ClInclude Include="$(XmakeProjectDir)\functions.lua" />
     <ClInclude Include="$(XmakeProjectDir)\tasks\create_class.lua" />
     <ClInclude Include="$(XmakeProjectDir)\xmake.lua" />

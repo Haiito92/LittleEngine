@@ -18,7 +18,7 @@ add_includedirs("inc")
 
 target("ExtraFiles")
     set_kind("phony")
-    add_extrafiles("README.md", ".gitignore")
+    add_extrafiles("README.md", ".gitignore", "TODO.txt")
     add_extrafiles("tasks/**.lua", "xmake.lua", "functions.lua")
 
 

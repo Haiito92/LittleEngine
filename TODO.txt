@@ -1,0 +1,4 @@
+##### CORE #####
+
+- Closing last window quit app only (if window closed is not last, don't quit app)
+- Clean Up closed window
