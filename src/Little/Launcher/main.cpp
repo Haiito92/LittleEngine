@@ -1,5 +1,5 @@
 #include <iostream>
-#include <Little/Engine/Core/Core.hpp>
+#include <Little/Engine/Core/Application.hpp>
 #include <Little/Engine/Core/Window.hpp>
 #include <fmt/printf.h>
 
@@ -9,7 +9,7 @@ int main(int argc, char** argv) {
 
     try
     {
-        LE::Core core;
+        LE::Application core;
         LE::Window window("Launcher", 1280, 720);
         LE::Window window2("Launcher 2", 1280, 720);
 

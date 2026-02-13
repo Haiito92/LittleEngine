@@ -1,19 +1,19 @@
 #include <stdexcept>
-#include <Little/Engine/Core/Core.hpp>
+#include <Little/Engine/Core/Application.hpp>
 #include <Windows.h>
 #include <fmt/format.h>
 #include <Little/Engine/Core/Window.hpp>
 
 namespace LE {
 
-    Core::Core()
+    Application::Application()
     {
         RegisterWindowClass();
     }
 
-    Core::~Core() = default;
+    Application::~Application() = default;
 
-    void Core::RegisterWindowClass()
+    void Application::RegisterWindowClass()
     {
         WNDCLASSEX wc;
         wc.cbSize = sizeof(WNDCLASSEX);

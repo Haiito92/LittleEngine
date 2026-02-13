@@ -9,11 +9,11 @@
 
 namespace LE {
 
-    class Core;
+    class Application;
     
     class LE_CORE_API Window 
     {
-    friend Core;
+    friend Application;
 
     public:
         Window() = delete;
