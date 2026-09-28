@@ -21,6 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", 
 		..\xmake.lua = ..\xmake.lua
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xmake", "xmake", "{B039B4D9-BD6A-4BC4-9F9F-1E7C6D607994}"
+	ProjectSection(SolutionItems) = preProject
+		..\xmake\createclass.lua = ..\xmake\createclass.lua
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		debug|x64 = debug|x64
@@ -36,6 +41,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{B039B4D9-BD6A-4BC4-9F9F-1E7C6D607994} = {007754BD-BB1F-452F-A0D8-13EF216C5ED9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D5C4A38A-8CB3-4486-A3D8-F69710AF1794}
