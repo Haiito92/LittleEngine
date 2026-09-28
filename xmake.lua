@@ -12,7 +12,8 @@ add_includedirs("inc")
 
 modules = {
     Core = {
-        Packages ={"libsdl3"}
+        Defines = {"LE_CORE_COMPILE"},
+        Packages = {"libsdl3"}
         }
     }
 
@@ -20,6 +21,14 @@ for name, module in pairs(modules) do
     target("LittleEngine" .. name)
         set_group("LittleEngine")
         set_kind("shared")
+        
+        if module.Defines then
+            add_defines(table.unpack(module.Defines))
+        end
+    
+        if module.Packages then
+            add_packages(table.unpack(module.Packages))
+        end
         
         add_headerfiles("inc/(LittleEngine/" .. name .. "/**.hpp)")
         add_headerfiles("inc/(LittleEngine/" .. name .. "/**.inl)")
