@@ -58,7 +58,7 @@ namespace Le
         ]] .. name ..[[& operator=(const ]] .. name ..[[& other) = delete;
         ]] .. name ..[[& operator=(]] .. name ..[[&& other) = delete;
     private:
-    }
+    };
 }
 
 ]]..inline..[[

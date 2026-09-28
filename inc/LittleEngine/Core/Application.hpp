@@ -17,7 +17,7 @@ namespace Le
         Application& operator=(const Application& other) = delete;
         Application& operator=(Application&& other) = delete;
     private:
-    }
+    };
 }
 
 #include <LittleEngine/Core/Application.inl>

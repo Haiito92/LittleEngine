@@ -10,9 +10,13 @@
 #
 VisualStudioVersion = 18.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleEngine", "LittleEngine\LittleEngine.vcxproj", "{A8195F91-3480-49F9-812A-DB3E3F2201C2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleLauncher", "LittleLauncher\LittleLauncher.vcxproj", "{9340C5DC-045C-42B7-9A5D-5550A6573799}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleEngineCore", "LittleEngineCore\LittleEngineCore.vcxproj", "{AF277861-6505-4131-AA44-E72DD03F14EE}"
 EndProject
 
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LittleEngine", "LittleEngine", "{ECC269DC-48E4-441F-A47A-9E48DBF2243B}"
+EndProject
 
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{007754BD-BB1F-452F-A0D8-13EF216C5ED9}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,28 +25,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", 
 		..\xmake.lua = ..\xmake.lua
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xmake", "xmake", "{CC5B5405-103D-43CE-B7E1-AC14459050FF}"
-	ProjectSection(SolutionItems) = preProject
-		..\xmake\createclass.lua = ..\xmake\createclass.lua
-		..\xmake\createmodule.lua = ..\xmake\createmodule.lua
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		debug|x64 = debug|x64
 		release|x64 = release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A8195F91-3480-49F9-812A-DB3E3F2201C2}.debug|x64.ActiveCfg = debug|x64
-		{A8195F91-3480-49F9-812A-DB3E3F2201C2}.debug|x64.Build.0 = debug|x64
-		{A8195F91-3480-49F9-812A-DB3E3F2201C2}.release|x64.ActiveCfg = release|x64
-		{A8195F91-3480-49F9-812A-DB3E3F2201C2}.release|x64.Build.0 = release|x64
+		{9340C5DC-045C-42B7-9A5D-5550A6573799}.debug|x64.ActiveCfg = debug|x64
+		{9340C5DC-045C-42B7-9A5D-5550A6573799}.debug|x64.Build.0 = debug|x64
+		{AF277861-6505-4131-AA44-E72DD03F14EE}.debug|x64.ActiveCfg = debug|x64
+		{AF277861-6505-4131-AA44-E72DD03F14EE}.debug|x64.Build.0 = debug|x64
+		{9340C5DC-045C-42B7-9A5D-5550A6573799}.release|x64.ActiveCfg = release|x64
+		{9340C5DC-045C-42B7-9A5D-5550A6573799}.release|x64.Build.0 = release|x64
+		{AF277861-6505-4131-AA44-E72DD03F14EE}.release|x64.ActiveCfg = release|x64
+		{AF277861-6505-4131-AA44-E72DD03F14EE}.release|x64.Build.0 = release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CC5B5405-103D-43CE-B7E1-AC14459050FF} = {007754BD-BB1F-452F-A0D8-13EF216C5ED9}
+		{AF277861-6505-4131-AA44-E72DD03F14EE} = {ECC269DC-48E4-441F-A47A-9E48DBF2243B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D5C4A38A-8CB3-4486-A3D8-F69710AF1794}
