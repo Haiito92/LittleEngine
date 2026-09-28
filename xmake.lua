@@ -1,5 +1,6 @@
 ----- tasks -----
 includes("xmake/createclass.lua")
+includes("xmake/createmodule.lua")
 
 ----- modules -----
 
