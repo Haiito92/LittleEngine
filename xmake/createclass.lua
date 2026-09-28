@@ -5,7 +5,9 @@ task("create-class")
         description = "Creates files for a new class.",
         options = {
             {'n', "name", "kv", nil, "The name of the class to create."},
-            {'m', "module", "kv", nil, "The module of the class."}
+            {'m', "module", "kv", nil, "The module of the class."},
+            {nil, "noinl", "k", nil, "For classes with no inl file."},
+            {nil, "nocpp", "k", nil, "For classes with no cpp file."}
         }
     }
     
@@ -63,16 +65,20 @@ namespace Le
 ]])
     
         -- inline --
-        createFile("inc", ".inl", [[
+        if not option.get("noinl") then
+            createFile("inc", ".inl", [[
 ]]..copyright..[[
 ]])
-            
+        end
+    
         -- source --
-        createFile("src", ".cpp", [[
+        if not option.get("nocpp") then
+            createFile("src", ".cpp", [[
 ]]..copyright..[[
 ]]..header..[[
 ]])
-            
+        end
+    
         print(name .. " class created!")
     end)
     
