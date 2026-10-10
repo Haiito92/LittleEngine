@@ -6,6 +6,7 @@ task("create-class")
         options = {
             {'n', "name", "kv", nil, "The name of the class to create."},
             {'m', "module", "kv", nil, "The module of the class."},
+            {'p', "path", "kv", "", "The relative path of the files, under the module folder, or under the root folder if no module is specified."},
             {nil, "noinl", "k", nil, "For classes with no inl file."},
             {nil, "nocpp", "k", nil, "For classes with no cpp file."}
         }
@@ -22,24 +23,34 @@ task("create-class")
         
         print("Creating class with name: " .. name)
     
+        -- options --
         local module = option.get("module")
+        local optionalPath = path.unix(option.get("path"))
+        local noInl = option.get("noinl")
+        local noCpp = option.get("nocpp")
         
-        local rootPath = module and path.join("LittleEngine", module) or "LittleEngine"
+        local rootPath = module and path.join("LittleEngine", module, optionalPath) or path.join("LittleEngine", optionalPath)
     
-        local function createFile(rootDir, ext, content)
-            local filePath = path.join(rootDir, rootPath, name .. ext)
-            -- if os.isfile(filePath) then return end
+        local function createFile(rootDir, relativePath, content)
+            
+            local filePath = path.join(rootDir, relativePath)
             
             io.writefile(filePath, content)    
         end
-    
+
+        -- file paths --
+        local headerPath = path.unix(path.join(rootPath, name .. ".hpp"))
+        local inlinePath = path.unix(path.join(rootPath, name .. ".inl"))
+        local sourcePath = path.unix(path.join(rootPath, name .. ".cpp"))
+
+        -- common strings --    
         local copyright = "// Copyright (c) Antoine Hanna (aka Haiito92, https://github.com/Haiito92)\n\n"
         local api = module and "LE_" .. module .. "_API " or "" 
         local export = module and "#include <LittleEngine/" .. module .. "/Export.hpp>\n\n" or ""
-        local inline = "#include <LittleEngine" .. (module and "/" .. module or "") .. "/" .. name .. ".inl>\n" or ""
-        local header = "#include <LittleEngine" .. (module and "/" .. module or "") .. "/" .. name .. ".hpp>\n\n"
+        local inlineInclude = not noInl and "#include <".. inlinePath ..">\n" or ""
+        
         -- header --
-        createFile("inc", ".hpp", [[
+        createFile("inc", headerPath, [[
 ]]..copyright..[[
 #pragma once
 
@@ -61,21 +72,23 @@ namespace Le
     };
 }
 
-]]..inline..[[
+]]..inlineInclude..[[
 ]])
     
         -- inline --
-        if not option.get("noinl") then
-            createFile("inc", ".inl", [[
+        if not noInl then
+            createFile("inc", inlinePath, [[
 ]]..copyright..[[
 ]])
         end
     
         -- source --
-        if not option.get("nocpp") then
-            createFile("src", ".cpp", [[
+        if not noCpp then
+            local headerInclude = "#include <".. headerPath ..">\n\n"
+            
+            createFile("src", sourcePath, [[
 ]]..copyright..[[
-]]..header..[[
+]]..headerInclude..[[
 ]])
         end
     
