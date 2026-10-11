@@ -4,7 +4,6 @@
 
 #include <LittleEngine/Core/Export.hpp>
 #include <cstdint>
-#include <SDL3/SDL_events.h>
 
 namespace Le
 {
@@ -21,10 +20,7 @@ namespace Le
         Event& operator=(const Event& other) = delete;
         Event& operator=(Event&& other) noexcept = default;
         
-        
-        
         EventType eventType;
-        SDL_Event sdlEvent;
     };
 
     enum class LE_CORE_API EventType : std::uint32_t

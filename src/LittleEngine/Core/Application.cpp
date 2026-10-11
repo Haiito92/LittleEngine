@@ -8,7 +8,6 @@
 void Le::Application::Run()
 {
     Platform platform = Platform();
-    
     Window window = Window("Little Launcher", 1600, 900);
     EventManager eventManager = EventManager();
     

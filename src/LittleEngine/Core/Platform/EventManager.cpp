@@ -10,7 +10,6 @@ bool Le::EventManager::PollEvent(Event& event) const
     SDL_Event sdlEvent;
     if (!SDL_PollEvent(&sdlEvent)) return false;
 
-
     switch (sdlEvent.type)
     {
         case SDL_EVENT_FIRST                             : event.eventType = EventType:: First                       ; break;
@@ -133,7 +132,6 @@ bool Le::EventManager::PollEvent(Event& event) const
     default:
         throw std::runtime_error("EventManager : Unhandled event type");
     }
-    event.sdlEvent = std::move(sdlEvent);
 
     return true;
 }
