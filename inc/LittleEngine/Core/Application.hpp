@@ -16,6 +16,8 @@ namespace Le
 
         Application& operator=(const Application& other) = delete;
         Application& operator=(Application&& other) = delete;
+        
+        void Run();
     private:
     };
 }
