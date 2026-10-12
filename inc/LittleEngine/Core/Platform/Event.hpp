@@ -9,7 +9,7 @@ namespace Le
 {
     enum class EventType : std::uint32_t;
     
-    struct  LE_CORE_API Event    
+    struct LE_CORE_API Event    
     {
     public:
         Event() = default;

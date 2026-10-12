@@ -1,28 +1,26 @@
 // Copyright (c) Antoine Hanna (aka Haiito92, https://github.com/Haiito92)
 
 #pragma once
-
-#include <memory>
 #include <string>
 #include <LittleEngine/Core/Export.hpp>
 
+struct SDL_Window;
+
 namespace Le
 {
-    struct WindowImpl;
-    
     class LE_CORE_API Window    
     {
     public:
         Window() = delete;
         Window(const std::string& title, int width, int height);
         Window(const Window& other) = delete;
-        Window(Window&& other) noexcept;
+        Window(Window&& other) = delete;
         ~Window();
 
         Window& operator=(const Window& other) = delete;
-        Window& operator=(Window&& other) noexcept;
+        Window& operator=(Window&& other) = delete;
     private:
-        std::unique_ptr<WindowImpl> m_impl;
+        SDL_Window* m_handle;
     };
 }
 
