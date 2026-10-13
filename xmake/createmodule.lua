@@ -14,15 +14,16 @@ task("create-module")
         import("core.project.config")
         import("core.base.task")
         
-        local name = option.get("name")
-        if not name then
+        local moduleName = option.get("name")
+        
+        if not moduleName then
             raise("You need to specify a module name.")
         end
         
-        print("Creating module with name: " .. name)
+        print("Creating module with name: " .. moduleName)
     
-        local exportPath = path.join("inc", "LittleEngine", name, "Export.hpp")
-        local upperName = string.upper(name)
+        local exportPath = path.join("inc", "LittleEngine", moduleName, "Export.hpp")
+        local upperName = string.upper(moduleName)
         local copyright = "// Copyright (c) Antoine Hanna (aka Haiito92, https://github.com/Haiito92)\n\n"
         
         io.writefile(exportPath, [[
@@ -38,9 +39,9 @@ task("create-module")
         local firstClassName = option.get("firstClassName")
         
         if firstClassName then
-            task.run("create-class", {name = "Application", module = "Core"})
+            task.run("create-class", {name = firstClassName, module = moduleName})
         end
     
-        print(name .. " module created!")
+        print(moduleName .. " module created!")
     end)
     
