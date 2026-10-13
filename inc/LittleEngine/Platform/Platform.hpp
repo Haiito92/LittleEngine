@@ -2,11 +2,11 @@
 
 #pragma once
 
-#include <LittleEngine/Core/Export.hpp>
+#include <LittleEngine/Platform/Export.hpp>
 
 namespace Le
 {
-    class LE_CORE_API Platform    
+    class LE_PLATFORM_API Platform    
     {
     public:
         Platform();
@@ -20,4 +20,4 @@ namespace Le
     };
 }
 
-#include <LittleEngine/Core/Platform/Platform.inl>
+#include <LittleEngine/Platform/Platform.inl>

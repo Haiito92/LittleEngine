@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleLauncher", "LittleLau
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleEngineCore", "LittleEngineCore\LittleEngineCore.vcxproj", "{AF277861-6505-4131-AA44-E72DD03F14EE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleEnginePlatform", "LittleEnginePlatform\LittleEnginePlatform.vcxproj", "{6CE540FB-235C-4ACF-AF19-9A07A4BBC07A}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleEngineRenderer", "LittleEngineRenderer\LittleEngineRenderer.vcxproj", "{32DB436E-C8A5-47A8-A7A5-584CEE02707A}"
 EndProject
 
@@ -37,12 +39,16 @@ Global
 		{9340C5DC-045C-42B7-9A5D-5550A6573799}.debug|x64.Build.0 = debug|x64
 		{AF277861-6505-4131-AA44-E72DD03F14EE}.debug|x64.ActiveCfg = debug|x64
 		{AF277861-6505-4131-AA44-E72DD03F14EE}.debug|x64.Build.0 = debug|x64
+		{6CE540FB-235C-4ACF-AF19-9A07A4BBC07A}.debug|x64.ActiveCfg = debug|x64
+		{6CE540FB-235C-4ACF-AF19-9A07A4BBC07A}.debug|x64.Build.0 = debug|x64
 		{32DB436E-C8A5-47A8-A7A5-584CEE02707A}.debug|x64.ActiveCfg = debug|x64
 		{32DB436E-C8A5-47A8-A7A5-584CEE02707A}.debug|x64.Build.0 = debug|x64
 		{9340C5DC-045C-42B7-9A5D-5550A6573799}.release|x64.ActiveCfg = release|x64
 		{9340C5DC-045C-42B7-9A5D-5550A6573799}.release|x64.Build.0 = release|x64
 		{AF277861-6505-4131-AA44-E72DD03F14EE}.release|x64.ActiveCfg = release|x64
 		{AF277861-6505-4131-AA44-E72DD03F14EE}.release|x64.Build.0 = release|x64
+		{6CE540FB-235C-4ACF-AF19-9A07A4BBC07A}.release|x64.ActiveCfg = release|x64
+		{6CE540FB-235C-4ACF-AF19-9A07A4BBC07A}.release|x64.Build.0 = release|x64
 		{32DB436E-C8A5-47A8-A7A5-584CEE02707A}.release|x64.ActiveCfg = release|x64
 		{32DB436E-C8A5-47A8-A7A5-584CEE02707A}.release|x64.Build.0 = release|x64
 	EndGlobalSection
@@ -51,6 +57,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AF277861-6505-4131-AA44-E72DD03F14EE} = {ECC269DC-48E4-441F-A47A-9E48DBF2243B}
+		{6CE540FB-235C-4ACF-AF19-9A07A4BBC07A} = {ECC269DC-48E4-441F-A47A-9E48DBF2243B}
 		{32DB436E-C8A5-47A8-A7A5-584CEE02707A} = {ECC269DC-48E4-441F-A47A-9E48DBF2243B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

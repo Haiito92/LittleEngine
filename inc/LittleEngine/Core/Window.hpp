@@ -1,6 +1,7 @@
 // Copyright (c) Antoine Hanna (aka Haiito92, https://github.com/Haiito92)
 
 #pragma once
+#include <memory>
 #include <string>
 #include <LittleEngine/Core/Export.hpp>
 
@@ -8,6 +9,8 @@ struct SDL_Window;
 
 namespace Le
 {
+    class WindowImpl;
+    
     class LE_CORE_API Window    
     {
     friend class Renderer;
@@ -22,12 +25,10 @@ namespace Le
         Window& operator=(const Window& other) = delete;
         Window& operator=(Window&& other) noexcept;
 
-        SDL_Window* GetHandle();
+        const WindowImpl* GetImpl() const;
     private:
-        SDL_Window* GetHandle() const;
-        
-        SDL_Window* m_handle;
+        std::unique_ptr<WindowImpl> m_impl;
     };
 }
 
-#include <LittleEngine/Core/Platform/Window.inl>
+#include <LittleEngine/Core/Window.inl>

@@ -1,7 +1,7 @@
 // Copyright (c) Antoine Hanna (aka Haiito92, https://github.com/Haiito92)
 
 #include <stdexcept>
-#include <LittleEngine/Core/Platform/Platform.hpp>
+#include <LittleEngine/Platform/Platform.hpp>
 #include <SDL3/SDL_init.h>
 #include <fmt/format.h>
 

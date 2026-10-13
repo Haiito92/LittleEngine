@@ -3,13 +3,13 @@
 #pragma once
 
 #include <cstdint>
+#include <memory>
 #include <LittleEngine/Renderer/Export.hpp>
-
-struct SDL_Renderer;
 
 namespace Le
 {
     class Window;
+    class RendererImpl;
     
     class LE_RENDERER_API Renderer    
     {
@@ -32,7 +32,7 @@ namespace Le
         
         void SetRenderDrawColor(const uint8_t& r, const uint8_t& g, const uint8_t& b, const uint8_t& a);
     private:
-        SDL_Renderer* m_renderer;
+        std::unique_ptr<RendererImpl> m_impl;
     };
 }
 

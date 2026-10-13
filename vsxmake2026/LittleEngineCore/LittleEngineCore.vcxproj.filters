@@ -21,9 +21,6 @@ xmake version 3.1.1+HEAD.3ba37a0d4
     <Filter Include="inc\LittleEngine\Core">
       <UniqueIdentifier>{1451F9D4-1E18-416D-9442-00A6AA70B610}</UniqueIdentifier>
     </Filter>
-    <Filter Include="inc\LittleEngine\Core\Platform">
-      <UniqueIdentifier>{CF2C2657-BC62-4AB3-BB03-C33DC0BB712F}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{491FBF00-292E-479F-8C8F-7A2AC045023A}</UniqueIdentifier>
     </Filter>
@@ -32,9 +29,6 @@ xmake version 3.1.1+HEAD.3ba37a0d4
     </Filter>
     <Filter Include="src\LittleEngine\Core">
       <UniqueIdentifier>{AECCD7B4-81BB-466D-81E7-234E8ED758B1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\LittleEngine\Core\Platform">
-      <UniqueIdentifier>{385D87E3-08BE-4027-9378-2FAC5FBD2F48}</UniqueIdentifier>
     </Filter>
 
   </ItemGroup>
@@ -62,32 +56,20 @@ xmake version 3.1.1+HEAD.3ba37a0d4
     <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Application.inl">
       <Filter>inc\LittleEngine\Core</Filter>
     </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\EventManager.hpp">
+      <Filter>inc\LittleEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\EventManager.inl">
+      <Filter>inc\LittleEngine\Core</Filter>
+    </ClInclude>
     <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Export.hpp">
       <Filter>inc\LittleEngine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Platform\Event.hpp">
-      <Filter>inc\LittleEngine\Core\Platform</Filter>
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Window.hpp">
+      <Filter>inc\LittleEngine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Platform\Event.inl">
-      <Filter>inc\LittleEngine\Core\Platform</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Platform\EventManager.hpp">
-      <Filter>inc\LittleEngine\Core\Platform</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Platform\EventManager.inl">
-      <Filter>inc\LittleEngine\Core\Platform</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Platform\Platform.hpp">
-      <Filter>inc\LittleEngine\Core\Platform</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Platform\Platform.inl">
-      <Filter>inc\LittleEngine\Core\Platform</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Platform\Window.hpp">
-      <Filter>inc\LittleEngine\Core\Platform</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Platform\Window.inl">
-      <Filter>inc\LittleEngine\Core\Platform</Filter>
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Window.inl">
+      <Filter>inc\LittleEngine\Core</Filter>
     </ClInclude>
 
 
@@ -97,17 +79,11 @@ xmake version 3.1.1+HEAD.3ba37a0d4
     <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\Application.cpp">
       <Filter>src\LittleEngine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\Platform\Event.cpp">
-      <Filter>src\LittleEngine\Core\Platform</Filter>
+    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\EventManager.cpp">
+      <Filter>src\LittleEngine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\Platform\EventManager.cpp">
-      <Filter>src\LittleEngine\Core\Platform</Filter>
-    </ClCompile>
-    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\Platform\Platform.cpp">
-      <Filter>src\LittleEngine\Core\Platform</Filter>
-    </ClCompile>
-    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\Platform\Window.cpp">
-      <Filter>src\LittleEngine\Core\Platform</Filter>
+    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\Window.cpp">
+      <Filter>src\LittleEngine\Core</Filter>
     </ClCompile>
 
 

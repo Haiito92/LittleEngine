@@ -2,26 +2,29 @@
 
 #pragma once
 
+#include <memory>
 #include <LittleEngine/Core/Export.hpp>
 
 namespace Le
 {
+    class EventManagerImpl;
     struct Event;
 
     class LE_CORE_API EventManager    
     {
     public:
-        EventManager() = default;
+        EventManager();
         EventManager(const EventManager& other) = delete;
         EventManager(EventManager&& other) = delete;
-        ~EventManager() = default;
+        ~EventManager();
 
         EventManager& operator=(const EventManager& other) = delete;
         EventManager& operator=(EventManager&& other) = delete;
         
         bool PollEvent(Event& event) const;
     private:
+        std::unique_ptr<EventManagerImpl> m_impl;
     };
 }
 
-#include <LittleEngine/Core/Platform/EventManager.inl>
+#include <LittleEngine/Core/EventManager.inl>

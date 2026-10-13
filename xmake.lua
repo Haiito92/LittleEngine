@@ -13,15 +13,20 @@ add_requires("fmt", "libsdl3")
 add_includedirs("inc")
 
 modules = {
+    Platform = {
+        Defines = {"LE_PLATFORM_COMPILE"},
+        Packages = {"libsdl3"},
+        PublicPackages = {"fmt"},
+        },
     Core = {
         Defines = {"LE_CORE_COMPILE"},
         Packages = {"libsdl3"},
         PublicPackages = {"fmt"},
+        Deps = {"LittleEnginePlatform"} 
         },
     Renderer = {
         Defines = {"LE_RENDERER_COMPILE"},
-        Packages = {"libsdl3"},
-        Deps = {"LittleEngineCore"} 
+        Deps = {"LittleEnginePlatform"} 
         }
     }
 
