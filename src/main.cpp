@@ -2,7 +2,7 @@
 #include <LittleEngine/Platform/Platform.hpp>
 #include <LittleEngine/Core/Window.hpp>
 #include <LittleEngine/Core/EventManager.hpp>
-#include <LittleEngine/Renderer/Renderer.hpp>
+#include <LittleEngine/Rendering/Renderer.hpp>
 #include "LittleEngine/Platform/Event.hpp"
 
 int main(int argc, char **argv) {

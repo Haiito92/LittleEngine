@@ -1,6 +1,6 @@
 // Copyright (c) Antoine Hanna (aka Haiito92, https://github.com/Haiito92)
 
-#include <LittleEngine/Renderer/Renderer.hpp>
+#include <LittleEngine/Rendering/Renderer.hpp>
 #include <LittleEngine/Core/Window.hpp>
 #include <LittleEngine/Platform/RendererImpl.hpp>
 #include <fmt/printf.h>

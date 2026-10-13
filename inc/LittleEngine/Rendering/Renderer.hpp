@@ -4,14 +4,14 @@
 
 #include <cstdint>
 #include <memory>
-#include <LittleEngine/Renderer/Export.hpp>
+#include <LittleEngine/Rendering/Export.hpp>
 
 namespace Le
 {
     class Window;
     class RendererImpl;
     
-    class LE_RENDERER_API Renderer    
+    class LE_RENDERING_API Renderer    
     {
     public:
         Renderer() = delete;
@@ -36,4 +36,4 @@ namespace Le
     };
 }
 
-#include <LittleEngine/Renderer/Renderer.inl>
+#include <LittleEngine/Rendering/Renderer.inl>

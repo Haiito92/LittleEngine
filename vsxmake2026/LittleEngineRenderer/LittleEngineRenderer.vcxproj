@@ -108,17 +108,11 @@ xmake version 3.1.1+HEAD.3ba37a0d4
 
   <Import Project="$(XmakeProgramDir)\scripts\vsxmake\vsproj\Xmake.props" />
   <ItemGroup>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Renderer\Export.hpp" />
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Renderer\Renderer.hpp" />
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Renderer\Renderer.inl" />
 
 
   </ItemGroup>
   <ItemGroup>
 
-    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Renderer\Renderer.cpp">
-      <CompileAs>CompileAsCpp</CompileAs>
-    </ClCompile>
 
 
 
@@ -136,6 +130,9 @@ xmake version 3.1.1+HEAD.3ba37a0d4
 
   </ItemGroup>
   <!-- <ItemGroup>
+    <ProjectReference Include="..\LittleEngineCore\LittleEngineCore.vcxproj">
+      <Project>{AF277861-6505-4131-AA44-E72DD03F14EE}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\LittleEnginePlatform\LittleEnginePlatform.vcxproj">
       <Project>{6CE540FB-235C-4ACF-AF19-9A07A4BBC07A}</Project>
     </ProjectReference>

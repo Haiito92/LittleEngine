@@ -24,8 +24,8 @@ modules = {
         PublicPackages = {"fmt"},
         Deps = {"LittleEnginePlatform"} 
         },
-    Renderer = {
-        Defines = {"LE_RENDERER_COMPILE"},
+    Rendering = {
+        Defines = {"LE_RENDERING_COMPILE"},
         Deps = {"LittleEnginePlatform", "LittleEngineCore"} 
         }
     }
