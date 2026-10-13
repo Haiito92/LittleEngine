@@ -25,8 +25,9 @@ namespace Le
         Window& operator=(const Window& other) = delete;
         Window& operator=(Window&& other) noexcept;
 
-        const WindowImpl* GetImpl() const;
     private:
+        const WindowImpl* GetImpl() const;
+        
         std::unique_ptr<WindowImpl> m_impl;
     };
 }

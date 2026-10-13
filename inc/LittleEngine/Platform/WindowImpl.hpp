@@ -11,7 +11,7 @@ namespace Le
 {
     class LE_PLATFORM_API WindowImpl    
     {
-        friend class RendererImpl;
+    friend class RendererImpl;
         
     public:
         WindowImpl() = delete;

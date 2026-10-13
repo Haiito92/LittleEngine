@@ -3,7 +3,6 @@
 #include <LittleEngine/Core/Window.hpp>
 #include <LittleEngine/Core/EventManager.hpp>
 #include <LittleEngine/Renderer/Renderer.hpp>
-#include <LittleEngine/Platform/RendererImpl.hpp>
 #include "LittleEngine/Platform/Event.hpp"
 
 int main(int argc, char **argv) {
@@ -12,7 +11,7 @@ int main(int argc, char **argv) {
     Le::Window window("Little Launcher", 1600, 900);
     Le::EventManager eventManager{};
     
-    Le::RendererImpl renderer(*window.GetImpl());
+    Le::Renderer renderer(window);
     
     bool isRunning = true;
     while (isRunning)

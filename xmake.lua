@@ -26,7 +26,7 @@ modules = {
         },
     Renderer = {
         Defines = {"LE_RENDERER_COMPILE"},
-        Deps = {"LittleEnginePlatform"} 
+        Deps = {"LittleEnginePlatform", "LittleEngineCore"} 
         }
     }
 
