@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", 
 		Xmake.Custom.props = Xmake.Custom.props
 		Xmake.Custom.targets = Xmake.Custom.targets
 		..\xmake.lua = ..\xmake.lua
+		..\xmake\createclass.lua = ..\xmake\createclass.lua
+		..\xmake\createmodule.lua = ..\xmake\createmodule.lua
 	EndProjectSection
 EndProject
 Global

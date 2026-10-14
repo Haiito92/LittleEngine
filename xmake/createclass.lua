@@ -89,6 +89,10 @@ namespace Le
             createFile("src", sourcePath, [[
 ]]..copyright..[[
 ]]..headerInclude..[[
+namespace Le
+{
+
+}
 ]])
         end
     

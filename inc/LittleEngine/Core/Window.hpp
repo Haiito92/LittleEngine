@@ -5,8 +5,6 @@
 #include <string>
 #include <LittleEngine/Core/Export.hpp>
 
-struct SDL_Window;
-
 namespace Le
 {
     class WindowImpl;
