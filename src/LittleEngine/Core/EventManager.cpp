@@ -1,10 +1,10 @@
 // Copyright (c) Antoine Hanna (aka Haiito92, https://github.com/Haiito92)
 
 #include <LittleEngine/Core/EventManager.hpp>
-#include <LittleEngine/Platform/EventManagerImpl.hpp>
+#include <LittleEngine/SDL/EventManagerImpl.hpp>
 
 Le::EventManager::EventManager():
-m_impl(std::make_unique<EventManagerImpl>())
+m_impl(std::make_unique<SDLEventManagerImpl>())
 {
 }
 

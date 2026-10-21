@@ -1,11 +1,11 @@
 // Copyright (c) Antoine Hanna (aka Haiito92, https://github.com/Haiito92)
 
 #include <stdexcept>
-#include <LittleEngine/Platform/EventManagerImpl.hpp>
+#include <LittleEngine/SDLBackend/SDLEventManagerImpl.hpp>
 #include <SDL3/SDL_events.h>
-#include <LittleEngine/Platform/Event.hpp>
+#include <LittleEngine/SDLBackend/Event.hpp>
 
-bool Le::EventManagerImpl::PollEvent(Event& event) const
+bool Le::SDLEventManagerImpl::PollEvent(Event& event) const
 {
     SDL_Event sdlEvent;
     if (!SDL_PollEvent(&sdlEvent)) return false;

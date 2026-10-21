@@ -1,13 +1,13 @@
 #include <fmt/printf.h>
-#include <LittleEngine/Platform/Platform.hpp>
+#include <LittleEngine/SDLBackend/SDLContext.hpp>
 #include <LittleEngine/Core/Window.hpp>
 #include <LittleEngine/Core/EventManager.hpp>
 #include <LittleEngine/Rendering/Renderer.hpp>
-#include "LittleEngine/Platform/Event.hpp"
+#include "LittleEngine/SDLBackend/Event.hpp"
 
 int main(int argc, char **argv) {
     
-    Le::Platform platform{};
+    Le::SDLContext sdlContext{};
     Le::Window window("Little Launcher", 1600, 900);
     Le::EventManager eventManager{};
     

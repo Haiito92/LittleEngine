@@ -4,11 +4,11 @@
 #include <numbers>
 #include <vector>
 #include <fmt/printf.h>
-#include <LittleEngine/Platform/RendererImpl.hpp>
-#include <LittleEngine/Platform/WindowImpl.hpp>
+#include <LittleEngine/SDLBackend/SDLRendererImpl.hpp>
+#include <LittleEngine/SDLBackend/SDLWindowImpl.hpp>
 #include <SDL3/SDL_render.h>
 
-Le::RendererImpl::RendererImpl(const WindowImpl& windowImpl):
+Le::SDLRendererImpl::SDLRendererImpl(const SDLWindowImpl& windowImpl):
 m_renderer(nullptr)
 {
     m_renderer = SDL_CreateRenderer(windowImpl.GetHandle(), nullptr);
@@ -18,24 +18,24 @@ m_renderer(nullptr)
     
 }
 
-Le::RendererImpl::~RendererImpl()
+Le::SDLRendererImpl::~SDLRendererImpl()
 {
     if (m_renderer)
         SDL_DestroyRenderer(m_renderer);
 }
 
-void Le::RendererImpl::RenderLine(float x1, float y1, float x2, float y2)
+void Le::SDLRendererImpl::RenderLine(float x1, float y1, float x2, float y2)
 {
     SDL_RenderLine(m_renderer, x1, y1, x2, y2);
 }
 
-void Le::RendererImpl::RenderFillRect(float x, float y, float width, float height)
+void Le::SDLRendererImpl::RenderFillRect(float x, float y, float width, float height)
 {
     SDL_FRect rect {.x = x, .y = y, .w = width, .h = height};
     SDL_RenderFillRect(m_renderer, &rect);
 }
 
-void Le::RendererImpl::RenderCircle(float cx, float cy, float radius, int segments)
+void Le::SDLRendererImpl::RenderCircle(float cx, float cy, float radius, int segments)
 {
     SDL_FPoint center{.x = cx, .y = cy};
         
@@ -53,17 +53,17 @@ void Le::RendererImpl::RenderCircle(float cx, float cy, float radius, int segmen
     SDL_RenderLines(m_renderer, points.data(), points.size());
 }
 
-void Le::RendererImpl::Clear()
+void Le::SDLRendererImpl::Clear()
 {
     SDL_RenderClear(m_renderer);
 }
 
-void Le::RendererImpl::Present()
+void Le::SDLRendererImpl::Present()
 {
     SDL_RenderPresent(m_renderer);
 }
 
-void Le::RendererImpl::SetRenderDrawColor(const uint8_t& r, const uint8_t& g, const uint8_t& b, const uint8_t& a)
+void Le::SDLRendererImpl::SetRenderDrawColor(const uint8_t& r, const uint8_t& g, const uint8_t& b, const uint8_t& a)
 {
     SDL_SetRenderDrawColor(m_renderer, r, g, b, a);
 }

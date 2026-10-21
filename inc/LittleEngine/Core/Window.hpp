@@ -7,7 +7,7 @@
 
 namespace Le
 {
-    class WindowImpl;
+    class SDLWindowImpl;
     
     class LE_CORE_API Window    
     {
@@ -24,9 +24,9 @@ namespace Le
         Window& operator=(Window&& other) noexcept;
 
     private:
-        const WindowImpl* GetImpl() const;
+        const SDLWindowImpl* GetImpl() const;
         
-        std::unique_ptr<WindowImpl> m_impl;
+        std::unique_ptr<SDLWindowImpl> m_impl;
     };
 }
 

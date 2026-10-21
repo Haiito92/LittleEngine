@@ -7,7 +7,7 @@
 
 namespace Le
 {
-    class EventManagerImpl;
+    class SDLEventManagerImpl;
     struct Event;
 
     class LE_CORE_API EventManager    
@@ -23,7 +23,7 @@ namespace Le
         
         bool PollEvent(Event& event) const;
     private:
-        std::unique_ptr<EventManagerImpl> m_impl;
+        std::unique_ptr<SDLEventManagerImpl> m_impl;
     };
 }
 

@@ -2,11 +2,11 @@
 
 #include <LittleEngine/Rendering/Renderer.hpp>
 #include <LittleEngine/Core/Window.hpp>
-#include <LittleEngine/Platform/RendererImpl.hpp>
+#include <LittleEngine/Rendering/IRendererImpl.hpp>
 #include <fmt/printf.h>
 
 Le::Renderer::Renderer(const Window& window):
-m_impl(std::make_unique<RendererImpl>(*window.GetImpl()))
+m_impl(std::make_unique<IRendererImpl>(*window.GetImpl()))
 {
 }
 

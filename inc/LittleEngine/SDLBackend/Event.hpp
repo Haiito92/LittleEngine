@@ -2,14 +2,14 @@
 
 #pragma once
 
-#include <LittleEngine/Platform/Export.hpp>
+#include <LittleEngine/SDLBackend/Export.hpp>
 #include <cstdint>
 
 namespace Le
 {
     enum class EventType : std::uint32_t;
     
-    struct LE_PLATFORM_API Event    
+    struct LE_SDLBACKEND_API Event    
     {
     public:
         Event() = default;
@@ -23,7 +23,7 @@ namespace Le
         EventType eventType;
     };
 
-    enum class LE_PLATFORM_API EventType : std::uint32_t
+    enum class LE_SDL_API EventType : std::uint32_t
     {
         First,
         Quit,
@@ -145,4 +145,4 @@ namespace Le
     };
 }
 
-#include <LittleEngine/Platform/Event.inl>
+#include <LittleEngine/SDLBackend/Event.inl>

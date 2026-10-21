@@ -8,8 +8,8 @@
 
 namespace Le
 {
+    class IRendererImpl;
     class Window;
-    class RendererImpl;
     
     class LE_RENDERING_API Renderer    
     {
@@ -32,7 +32,7 @@ namespace Le
         
         void SetRenderDrawColor(const uint8_t& r, const uint8_t& g, const uint8_t& b, const uint8_t& a);
     private:
-        std::unique_ptr<RendererImpl> m_impl;
+        std::unique_ptr<IRendererImpl> m_impl;
     };
 }
 

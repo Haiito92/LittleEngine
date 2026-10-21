@@ -13,21 +13,22 @@ add_requires("fmt", "libsdl3")
 add_includedirs("inc")
 
 modules = {
-    Platform = {
-        Defines = {"LE_PLATFORM_COMPILE"},
-        Packages = {"libsdl3"},
-        PublicPackages = {"fmt"},
-        },
     Core = {
         Defines = {"LE_CORE_COMPILE"},
+        Deps = {},
         Packages = {"libsdl3"},
         PublicPackages = {"fmt"},
-        Deps = {"LittleEnginePlatform"} 
         },
     Rendering = {
         Defines = {"LE_RENDERING_COMPILE"},
-        Deps = {"LittleEnginePlatform", "LittleEngineCore"} 
-        }
+        Deps = {"LittleEngineCore"}, 
+        },
+    SDLBackend = {
+            Defines = {"LE_SDLBACKEND_COMPILE"},
+            Deps = {"LittleEngineCore", "LittleEngineRendering"},
+            Packages = {"libsdl3"},
+            PublicPackages = {"fmt"},
+            },
     }
 
 for name, module in pairs(modules) do
@@ -39,6 +40,10 @@ for name, module in pairs(modules) do
             add_defines(table.unpack(module.Defines))
         end
     
+        if module.Deps then
+            add_deps(table.unpack(module.Deps))
+        end
+    
         if module.Packages then
             add_packages(table.unpack(module.Packages))
         end
@@ -47,10 +52,6 @@ for name, module in pairs(modules) do
             for _,pkg in ipairs(module.PublicPackages) do
                 add_packages(pkg, {public = true})
             end
-        end
-    
-        if module.Deps then
-            add_deps(table.unpack(module.Deps))
         end
         
         add_headerfiles("inc/(LittleEngine/" .. name .. "/**.hpp)")
