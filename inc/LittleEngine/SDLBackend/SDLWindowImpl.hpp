@@ -24,11 +24,7 @@ namespace Le
         SDLWindowImpl& operator=(const SDLWindowImpl& other) = delete;
         SDLWindowImpl& operator=(SDLWindowImpl&& other) = delete;
         
-        WindowHandle GetHandle() override;
-        
-    protected:
         WindowHandle GetHandle() const override;
-        
     private:
         SDL_Window* GetSDLHandle() const;
         

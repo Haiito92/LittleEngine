@@ -23,8 +23,6 @@ namespace Le
     public:
         virtual ~IWindowImpl() = default;
 
-        virtual WindowHandle GetHandle() = 0;
-    protected:
         virtual WindowHandle GetHandle() const = 0;
     private:
     };

@@ -7,12 +7,9 @@
 namespace Le
 {
     class IWindowImpl;
-    class SDLWindowImpl;
     
     class LE_CORE_API Window    
     {
-    friend class Renderer;
-        
     public:
         Window() = delete;
         Window(std::unique_ptr<IWindowImpl> windowImpl);
@@ -23,9 +20,8 @@ namespace Le
         Window& operator=(const Window& other) = delete;
         Window& operator=(Window&& other) noexcept;
 
-    private:
         const IWindowImpl* GetImpl() const;
-        
+    private:
         std::unique_ptr<IWindowImpl> m_impl;
     };
 }

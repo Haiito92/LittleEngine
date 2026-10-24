@@ -15,11 +15,6 @@ Le::SDLWindowImpl::~SDLWindowImpl()
         SDL_DestroyWindow(m_handle);
 }
 
-Le::WindowHandle Le::SDLWindowImpl::GetHandle()
-{
-    return WindowHandle{.handle = m_handle, .windowPlatform = WindowPlatform::SDL};
-}
-
 Le::WindowHandle Le::SDLWindowImpl::GetHandle() const
 {
     return WindowHandle{.handle = m_handle, .windowPlatform = WindowPlatform::SDL};

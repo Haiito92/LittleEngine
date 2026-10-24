@@ -13,7 +13,7 @@ namespace Le
 {
     class SDLWindowImpl;
 
-    class LE_SDLBACKEND_API SDLRendererImpl : IRendererImpl 
+    class LE_SDLBACKEND_API SDLRendererImpl : public IRendererImpl 
     {
     public:
         SDLRendererImpl() = delete;
