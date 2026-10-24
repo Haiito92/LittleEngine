@@ -2,11 +2,25 @@
 
 #include <LittleEngine/SDLBackend/SDLFactory.hpp>
 #include <LittleEngine/SDLBackend/SDLRendererImpl.hpp>
+#include <LittleEngine/SDLBackend/SDLWindowImpl.hpp>
+
+#include "LittleEngine/SDLBackend/SDLEventManagerImpl.hpp"
 
 namespace Le
 {
-    std::unique_ptr<IRendererImpl> CreateSDLRendererImpl()
+    Window CreateSDLWindow(const std::string& title, int width, int height)
     {
-        return std::make_unique<SDLRendererImpl>();
+        
+        return {std::make_unique<SDLWindowImpl>(title.c_str(), width, height)};
     }
+
+    EventManager CreateSDLEventManager()
+    {
+        return {std::make_unique<SDLEventManagerImpl>()};
+    }
+
+    // std::unique_ptr<IRendererImpl> CreateSDLRendererImpl()
+    // {
+    //     return std::make_unique<SDLRendererImpl>();
+    // }
 }

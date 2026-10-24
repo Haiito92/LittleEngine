@@ -4,22 +4,24 @@
 
 #include <LittleEngine/SDLBackend/Export.hpp>
 
+#include "LittleEngine/Core/IEventManagerImpl.hpp"
+
 namespace Le
 {
     struct Event;
 
-    class LE_SDLBACKEND_API SDLEventManagerImpl    
+    class LE_SDLBACKEND_API SDLEventManagerImpl : public IEventManagerImpl  
     {
     public:
         SDLEventManagerImpl() = default;
         SDLEventManagerImpl(const SDLEventManagerImpl& other) = delete;
         SDLEventManagerImpl(SDLEventManagerImpl&& other) = delete;
-        ~SDLEventManagerImpl() = default;
+        ~SDLEventManagerImpl() override = default;
 
         SDLEventManagerImpl& operator=(const SDLEventManagerImpl& other) = delete;
         SDLEventManagerImpl& operator=(SDLEventManagerImpl&& other) = delete;
         
-        bool PollEvent(Event& event) const;
+        bool PollEvent(Event& event) const override;
     private:
     };
 }

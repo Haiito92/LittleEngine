@@ -4,12 +4,13 @@
 
 #include <string>
 #include <LittleEngine/SDLBackend/Export.hpp>
+#include <LittleEngine/Core/IWindowImpl.hpp>
 
 struct SDL_Window;
 
 namespace Le
 {
-    class LE_SDLBACKEND_API SDLWindowImpl    
+    class LE_SDLBACKEND_API SDLWindowImpl : public IWindowImpl 
     {
     friend class SDLRendererImpl;
         
@@ -18,14 +19,18 @@ namespace Le
         SDLWindowImpl(const std::string& title, int width, int height);
         SDLWindowImpl(const SDLWindowImpl& other) = delete;
         SDLWindowImpl(SDLWindowImpl&& other) = delete;
-        ~SDLWindowImpl();
+        ~SDLWindowImpl() override;
 
         SDLWindowImpl& operator=(const SDLWindowImpl& other) = delete;
         SDLWindowImpl& operator=(SDLWindowImpl&& other) = delete;
         
-        SDL_Window* GetHandle();
+        WindowHandle GetHandle() override;
+        
+    protected:
+        WindowHandle GetHandle() const override;
+        
     private:
-        SDL_Window* GetHandle() const;
+        SDL_Window* GetSDLHandle() const;
         
         SDL_Window* m_handle;
     };

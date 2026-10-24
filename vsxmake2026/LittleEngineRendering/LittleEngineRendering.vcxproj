@@ -116,6 +116,7 @@ xmake version 3.1.1+HEAD.3ba37a0d4
 
   </ItemGroup>
   <ItemGroup>
+
     <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Rendering\Renderer.cpp">
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>

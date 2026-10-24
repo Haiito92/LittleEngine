@@ -1,11 +1,10 @@
 // Copyright (c) Antoine Hanna (aka Haiito92, https://github.com/Haiito92)
 
 #include <LittleEngine/Core/Window.hpp>
-#include <LittleEngine/SDL/WindowImpl.hpp>
+#include <LittleEngine/Core/IWindowImpl.hpp>
 
-
-Le::Window::Window(const std::string& title, int width, int height):
-m_impl(std::make_unique<SDLWindowImpl>(title, width, height))
+Le::Window::Window(std::unique_ptr<IWindowImpl> windowImpl):
+m_impl(std::move(windowImpl))
 {
 }
 
@@ -27,7 +26,7 @@ Le::Window& Le::Window::operator=(Window&& other) noexcept
     return *this;
 }
 
-const Le::SDLWindowImpl* Le::Window::GetImpl() const
+const Le::IWindowImpl* Le::Window::GetImpl() const
 {
     return m_impl.get();
 }

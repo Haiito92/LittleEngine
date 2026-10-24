@@ -11,7 +11,7 @@
 Le::SDLRendererImpl::SDLRendererImpl(const SDLWindowImpl& windowImpl):
 m_renderer(nullptr)
 {
-    m_renderer = SDL_CreateRenderer(windowImpl.GetHandle(), nullptr);
+    m_renderer = SDL_CreateRenderer(windowImpl.GetSDLHandle(), nullptr);
     
     if (!m_renderer)
         fmt::printf("SDL_CreateRenderer() failed: {}", SDL_GetError());

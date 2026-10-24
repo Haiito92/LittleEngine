@@ -7,23 +7,24 @@
 
 namespace Le
 {
-    class SDLEventManagerImpl;
+    class IEventManagerImpl;
     struct Event;
 
     class LE_CORE_API EventManager    
     {
     public:
-        EventManager();
+        EventManager() = delete;
+        EventManager(std::unique_ptr<IEventManagerImpl> impl);
         EventManager(const EventManager& other) = delete;
-        EventManager(EventManager&& other) = delete;
+        EventManager(EventManager&& other) noexcept;
         ~EventManager();
-
+    
         EventManager& operator=(const EventManager& other) = delete;
-        EventManager& operator=(EventManager&& other) = delete;
+        EventManager& operator=(EventManager&& other) noexcept;
         
         bool PollEvent(Event& event) const;
     private:
-        std::unique_ptr<SDLEventManagerImpl> m_impl;
+        std::unique_ptr<IEventManagerImpl> m_impl;
     };
 }
 

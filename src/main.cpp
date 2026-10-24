@@ -2,16 +2,17 @@
 #include <LittleEngine/SDLBackend/SDLContext.hpp>
 #include <LittleEngine/Core/Window.hpp>
 #include <LittleEngine/Core/EventManager.hpp>
+#include <LittleEngine/Core/Event.hpp>
 #include <LittleEngine/Rendering/Renderer.hpp>
-#include "LittleEngine/SDLBackend/Event.hpp"
+#include <LittleEngine/SDLBackend/SDLFactory.hpp>
 
 int main(int argc, char **argv) {
     
     Le::SDLContext sdlContext{};
-    Le::Window window("Little Launcher", 1600, 900);
-    Le::EventManager eventManager{};
+    Le::Window window = Le::CreateSDLWindow("Little Launcher", 1600, 900);
+    Le::EventManager eventManager = Le::CreateSDLEventManager();
     
-    Le::Renderer renderer(window);
+    //Le::Renderer renderer(window);
     
     bool isRunning = true;
     while (isRunning)
@@ -33,23 +34,23 @@ int main(int argc, char **argv) {
         }
         
         // Rendering
-        renderer.SetRenderDrawColor(33, 33, 33, 255);
+        //renderer.SetRenderDrawColor(33, 33, 33, 255);
         
-        renderer.Clear();
+        //renderer.Clear();
         
         // Rect
-        renderer.SetRenderDrawColor(233, 0, 0, 255);
-        renderer.RenderFillRect(336, 386, 128, 128);
+        //renderer.SetRenderDrawColor(233, 0, 0, 255);
+        //renderer.RenderFillRect(336, 386, 128, 128);
         
         // Line
-        renderer.SetRenderDrawColor(0, 233, 0, 255);
-        renderer.RenderLine(736, 450, 864, 450); 
+        //renderer.SetRenderDrawColor(0, 233, 0, 255);
+        //renderer.RenderLine(736, 450, 864, 450); 
         
         // Circle
-        renderer.SetRenderDrawColor(0, 0, 233, 255);
-        renderer.RenderCircle(1200, 450, 64, 64);
+        //renderer.SetRenderDrawColor(0, 0, 233, 255);
+        //renderer.RenderCircle(1200, 450, 64, 64);
         
-        renderer.Present();
+        //renderer.Present();
     }
     
     return 0;

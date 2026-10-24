@@ -50,10 +50,10 @@ xmake version 3.1.1+HEAD.3ba37a0d4
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Application.hpp">
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Event.hpp">
       <Filter>inc\LittleEngine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Application.inl">
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Event.inl">
       <Filter>inc\LittleEngine\Core</Filter>
     </ClInclude>
     <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\EventManager.hpp">
@@ -63,6 +63,15 @@ xmake version 3.1.1+HEAD.3ba37a0d4
       <Filter>inc\LittleEngine\Core</Filter>
     </ClInclude>
     <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Export.hpp">
+      <Filter>inc\LittleEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\IEventManagerImpl.hpp">
+      <Filter>inc\LittleEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\IEventManagerImpl.inl">
+      <Filter>inc\LittleEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\IWindowImpl.hpp">
       <Filter>inc\LittleEngine\Core</Filter>
     </ClInclude>
     <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Core\Window.hpp">
@@ -76,10 +85,13 @@ xmake version 3.1.1+HEAD.3ba37a0d4
   </ItemGroup>
   <ItemGroup>
 
-    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\Application.cpp">
+    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\Event.cpp">
       <Filter>src\LittleEngine\Core</Filter>
     </ClCompile>
     <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\EventManager.cpp">
+      <Filter>src\LittleEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\IEventManagerImpl.cpp">
       <Filter>src\LittleEngine\Core</Filter>
     </ClCompile>
     <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Core\Window.cpp">

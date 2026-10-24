@@ -2,14 +2,18 @@
 
 #pragma once
 
-#include <memory>
+#include <string>
 #include <LittleEngine/SDLBackend/Export.hpp>
+#include <LittleEngine/Core/Window.hpp>
+#include <LittleEngine/Core/EventManager.hpp>
 
 namespace Le
 {
     class IRendererImpl;
     
-    std::unique_ptr<IRendererImpl> LE_SDLBACKEND_API CreateSDLRendererImpl();
+    Window LE_SDLBACKEND_API CreateSDLWindow(const std::string& title, int width, int height);
+    EventManager LE_SDLBACKEND_API CreateSDLEventManager();
+    // std::unique_ptr<IRendererImpl> LE_SDLBACKEND_API CreateSDLRendererImpl(const IWindowImpl& WindowImpl);
 }
 
 #include <LittleEngine/SDLBackend/SDLFactory.inl>

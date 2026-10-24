@@ -15,7 +15,7 @@ namespace Le
     {
     public:
         Renderer() = delete;
-        Renderer(const Window& window);
+        Renderer(std::unique_ptr<IRendererImpl> impl);
         Renderer(const Renderer& other) = delete;
         Renderer(Renderer&& other) = delete;
         ~Renderer();

@@ -5,8 +5,8 @@
 #include <LittleEngine/Rendering/IRendererImpl.hpp>
 #include <fmt/printf.h>
 
-Le::Renderer::Renderer(const Window& window):
-m_impl(std::make_unique<IRendererImpl>(*window.GetImpl()))
+Le::Renderer::Renderer(std::unique_ptr<IRendererImpl> impl):
+m_impl(std::move(impl))
 {
 }
 

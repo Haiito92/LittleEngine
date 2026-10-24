@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <LittleEngine/SDLBackend/SDLEventManagerImpl.hpp>
 #include <SDL3/SDL_events.h>
-#include <LittleEngine/SDLBackend/Event.hpp>
+#include <LittleEngine/Core/Event.hpp>
 
 bool Le::SDLEventManagerImpl::PollEvent(Event& event) const
 {

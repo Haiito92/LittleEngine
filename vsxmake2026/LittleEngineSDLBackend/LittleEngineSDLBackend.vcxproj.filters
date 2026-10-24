@@ -50,25 +50,7 @@ xmake version 3.1.1+HEAD.3ba37a0d4
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\Event.hpp">
-      <Filter>inc\LittleEngine\SDLBackend</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\Event.inl">
-      <Filter>inc\LittleEngine\SDLBackend</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\EventManagerImpl.hpp">
-      <Filter>inc\LittleEngine\SDLBackend</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\EventManagerImpl.inl">
-      <Filter>inc\LittleEngine\SDLBackend</Filter>
-    </ClInclude>
     <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\Export.hpp">
-      <Filter>inc\LittleEngine\SDLBackend</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\RendererImpl.hpp">
-      <Filter>inc\LittleEngine\SDLBackend</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\RendererImpl.inl">
       <Filter>inc\LittleEngine\SDLBackend</Filter>
     </ClInclude>
     <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\SDLContext.hpp">
@@ -77,16 +59,28 @@ xmake version 3.1.1+HEAD.3ba37a0d4
     <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\SDLContext.inl">
       <Filter>inc\LittleEngine\SDLBackend</Filter>
     </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\SDLEventManagerImpl.hpp">
+      <Filter>inc\LittleEngine\SDLBackend</Filter>
+    </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\SDLEventManagerImpl.inl">
+      <Filter>inc\LittleEngine\SDLBackend</Filter>
+    </ClInclude>
     <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\SDLFactory.hpp">
       <Filter>inc\LittleEngine\SDLBackend</Filter>
     </ClInclude>
     <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\SDLFactory.inl">
       <Filter>inc\LittleEngine\SDLBackend</Filter>
     </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\WindowImpl.hpp">
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\SDLRendererImpl.hpp">
       <Filter>inc\LittleEngine\SDLBackend</Filter>
     </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\WindowImpl.inl">
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\SDLRendererImpl.inl">
+      <Filter>inc\LittleEngine\SDLBackend</Filter>
+    </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\SDLWindowImpl.hpp">
+      <Filter>inc\LittleEngine\SDLBackend</Filter>
+    </ClInclude>
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\SDLBackend\SDLWindowImpl.inl">
       <Filter>inc\LittleEngine\SDLBackend</Filter>
     </ClInclude>
 
@@ -94,22 +88,19 @@ xmake version 3.1.1+HEAD.3ba37a0d4
   </ItemGroup>
   <ItemGroup>
 
-    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\SDLBackend\Event.cpp">
-      <Filter>src\LittleEngine\SDLBackend</Filter>
-    </ClCompile>
-    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\SDLBackend\EventManagerImpl.cpp">
-      <Filter>src\LittleEngine\SDLBackend</Filter>
-    </ClCompile>
-    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\SDLBackend\RendererImpl.cpp">
-      <Filter>src\LittleEngine\SDLBackend</Filter>
-    </ClCompile>
     <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\SDLBackend\SDLContext.cpp">
+      <Filter>src\LittleEngine\SDLBackend</Filter>
+    </ClCompile>
+    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\SDLBackend\SDLEventManagerImpl.cpp">
       <Filter>src\LittleEngine\SDLBackend</Filter>
     </ClCompile>
     <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\SDLBackend\SDLFactory.cpp">
       <Filter>src\LittleEngine\SDLBackend</Filter>
     </ClCompile>
-    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\SDLBackend\WindowImpl.cpp">
+    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\SDLBackend\SDLRendererImpl.cpp">
+      <Filter>src\LittleEngine\SDLBackend</Filter>
+    </ClCompile>
+    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\SDLBackend\SDLWindowImpl.cpp">
       <Filter>src\LittleEngine\SDLBackend</Filter>
     </ClCompile>
 
