@@ -3,7 +3,7 @@
 #include <cmath>
 #include <numbers>
 #include <vector>
-#include <fmt/printf.h>
+#include <fmt/format.h>
 #include <LittleEngine/SDLBackend/SDLRendererImpl.hpp>
 #include <LittleEngine/SDLBackend/SDLWindowImpl.hpp>
 #include <SDL3/SDL_render.h>
@@ -14,7 +14,7 @@ m_renderer(nullptr)
     m_renderer = SDL_CreateRenderer(windowImpl.GetSDLHandle(), nullptr);
     
     if (!m_renderer)
-        fmt::printf("SDL_CreateRenderer() failed: {}", SDL_GetError());
+        throw std::runtime_error(fmt::format("SDL_CreateRenderer() failed: {}", SDL_GetError()));
     
 }
 
