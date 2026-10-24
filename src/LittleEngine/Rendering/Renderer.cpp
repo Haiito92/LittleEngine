@@ -10,10 +10,22 @@ m_impl(std::move(impl))
 {
 }
 
+Le::Renderer::Renderer(Renderer&& other) noexcept:
+m_impl(std::move(other.m_impl))
+{
+}
+
 Le::Renderer::~Renderer()
 {
     if (m_impl)
         m_impl.reset();
+}
+
+Le::Renderer& Le::Renderer::operator=(Renderer&& other) noexcept
+{
+    m_impl = std::move(other.m_impl);
+    
+    return *this;
 }
 
 void Le::Renderer::RenderLine(float x1, float y1, float x2, float y2)

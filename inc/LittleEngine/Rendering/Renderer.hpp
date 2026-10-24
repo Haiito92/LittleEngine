@@ -17,11 +17,11 @@ namespace Le
         Renderer() = delete;
         Renderer(std::unique_ptr<IRendererImpl> impl);
         Renderer(const Renderer& other) = delete;
-        Renderer(Renderer&& other) = delete;
+        Renderer(Renderer&& other) noexcept;
         ~Renderer();
 
         Renderer& operator=(const Renderer& other) = delete;
-        Renderer& operator=(Renderer&& other) = delete;
+        Renderer& operator=(Renderer&& other) noexcept;
         
         void RenderLine(float x1, float y1, float x2, float y2);
         void RenderFillRect(float x, float y, float width, float height);
