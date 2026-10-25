@@ -18,10 +18,10 @@ namespace Le
         WindowPlatform windowPlatform = WindowPlatform::Unknown;
     };
     
-    class LE_CORE_API IWindowImpl    
+    class LE_CORE_API IWindow    
     {
     public:
-        virtual ~IWindowImpl() = default;
+        virtual ~IWindow();
 
         virtual WindowHandle GetHandle() const = 0;
     private:

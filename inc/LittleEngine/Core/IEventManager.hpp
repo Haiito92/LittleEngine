@@ -8,10 +8,10 @@ namespace Le
 {
     struct Event;
 
-    class LE_CORE_API IEventManagerImpl    
+    class LE_CORE_API IEventManager    
     {
     public:
-        virtual ~IEventManagerImpl() = default;
+        virtual ~IEventManager();
     
         virtual bool PollEvent(Event& event) const = 0;        
     };

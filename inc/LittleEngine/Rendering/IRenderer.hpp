@@ -7,10 +7,10 @@
 
 namespace Le
 {
-    class LE_RENDERING_API IRendererImpl    
+    class LE_RENDERING_API IRenderer    
     {
     public:
-        virtual ~IRendererImpl() = default;
+        virtual ~IRenderer();
         
         virtual void RenderLine(float x1, float y1, float x2, float y2) = 0;
         virtual void RenderFillRect(float x, float y, float width, float height) = 0;

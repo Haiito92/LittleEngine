@@ -5,25 +5,25 @@
 #include <cstdint>
 #include <LittleEngine/SDLBackend/Export.hpp>
 
-#include "LittleEngine/Rendering/IRendererImpl.hpp"
+#include "LittleEngine/Rendering/IRenderer.hpp"
 
 struct SDL_Renderer;
 
 namespace Le
 {
-    class SDLWindowImpl;
+    class SDLWindow;
 
-    class LE_SDLBACKEND_API SDLRendererImpl : public IRendererImpl 
+    class LE_SDLBACKEND_API SDLRenderer : public IRenderer 
     {
     public:
-        SDLRendererImpl() = delete;
-        SDLRendererImpl(const SDLWindowImpl& windowImpl);
-        SDLRendererImpl(const SDLRendererImpl& other) = delete;
-        SDLRendererImpl(SDLRendererImpl&& other) = delete;
-        ~SDLRendererImpl() override;
+        SDLRenderer() = delete;
+        SDLRenderer(const SDLWindow& windowImpl);
+        SDLRenderer(const SDLRenderer& other) = delete;
+        SDLRenderer(SDLRenderer&& other) = delete;
+        ~SDLRenderer() override;
 
-        SDLRendererImpl& operator=(const SDLRendererImpl& other) = delete;
-        SDLRendererImpl& operator=(SDLRendererImpl&& other) = delete;
+        SDLRenderer& operator=(const SDLRenderer& other) = delete;
+        SDLRenderer& operator=(SDLRenderer&& other) = delete;
         
         void RenderLine(float x1, float y1, float x2, float y2) override;
         void RenderFillRect(float x, float y, float width, float height) override;
@@ -38,4 +38,4 @@ namespace Le
     };
 }
 
-#include <LittleEngine/SDLBackend/SDLRendererImpl.inl>
+#include <LittleEngine/SDLBackend/SDLRenderer.inl>

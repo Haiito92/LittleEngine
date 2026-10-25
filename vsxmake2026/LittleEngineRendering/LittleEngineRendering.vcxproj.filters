@@ -53,13 +53,7 @@ xmake version 3.1.1+HEAD.3ba37a0d4
     <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Rendering\Export.hpp">
       <Filter>inc\LittleEngine\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Rendering\IRendererImpl.hpp">
-      <Filter>inc\LittleEngine\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Rendering\Renderer.hpp">
-      <Filter>inc\LittleEngine\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Rendering\Renderer.inl">
+    <ClInclude Include="$(XmakeProjectDir)\inc\LittleEngine\Rendering\IRenderer.hpp">
       <Filter>inc\LittleEngine\Rendering</Filter>
     </ClInclude>
 
@@ -67,7 +61,7 @@ xmake version 3.1.1+HEAD.3ba37a0d4
   </ItemGroup>
   <ItemGroup>
 
-    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Rendering\Renderer.cpp">
+    <ClCompile Include="$(XmakeProjectDir)\src\LittleEngine\Rendering\IRenderer.cpp">
       <Filter>src\LittleEngine\Rendering</Filter>
     </ClCompile>
 
