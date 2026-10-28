@@ -28,6 +28,7 @@ namespace Le
         void RenderLine(float x1, float y1, float x2, float y2) override;
         void RenderFillRect(float x, float y, float width, float height) override;
         void RenderCircle(float cx, float cy, float radius, int segments) override;
+        void RenderGeometry(const std::vector<Vertex>& vertices, const std::vector<int>& indices) override;
         
         void Clear() override;
         void Present() override;

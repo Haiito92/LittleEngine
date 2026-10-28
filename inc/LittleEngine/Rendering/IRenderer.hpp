@@ -3,10 +3,13 @@
 #pragma once
 
 #include <cstdint>
+#include <vector>
 #include <LittleEngine/Rendering/Export.hpp>
 
 namespace Le
 {
+    struct Vertex;
+
     class LE_RENDERING_API IRenderer    
     {
     public:
@@ -15,6 +18,7 @@ namespace Le
         virtual void RenderLine(float x1, float y1, float x2, float y2) = 0;
         virtual void RenderFillRect(float x, float y, float width, float height) = 0;
         virtual void RenderCircle(float cx, float cy, float radius, int segments) = 0;
+        virtual void RenderGeometry(const std::vector<Vertex>& vertices, const std::vector<int>& indices) = 0;
         
         virtual void Clear() = 0;
         virtual void Present() = 0;

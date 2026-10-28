@@ -6,6 +6,8 @@
 #include <LittleEngine/Rendering/IRenderer.hpp>
 #include <LittleEngine/SDLBackend/SDLFactory.hpp>
 
+#include "LittleEngine/Rendering/Vertex.hpp"
+
 int main(int argc, char **argv) {
     
     Le::SDLContext sdlContext{};
@@ -37,17 +39,18 @@ int main(int argc, char **argv) {
         renderer->SetRenderDrawColor(33, 33, 33, 255);
         renderer->Clear();
         
-        // Rect
-        renderer->SetRenderDrawColor(233, 0, 0, 255);
-        renderer->RenderFillRect(336, 386, 128, 128);
+        // Geometry
         
-        // Line
-        renderer->SetRenderDrawColor(0, 233, 0, 255);
-        renderer->RenderLine(736, 450, 864, 450); 
+        std::vector<Le::Vertex> vertices;
+        vertices.reserve(4);
+        vertices.push_back({.x = 750.0f, .y = 350.0f, .r = 1.0f, .g = 1.0f, .b = 1.0f, .a = 1.0f, .u = 0.0f, .v = 0.0f});
+        vertices.push_back({.x = 850.0f, .y = 350.0f, .r = 1.0f, .g = 1.0f, .b = 1.0f, .a = 1.0f, .u = 1.0f, .v = 0.0f});
+        vertices.push_back({.x = 750.0f, .y = 450.0f, .r = 1.0f, .g = 1.0f, .b = 1.0f, .a = 1.0f, .u = 0.0f, .v = 1.0f});
+        vertices.push_back({.x = 850.0f, .y = 450.0f, .r = 1.0f, .g = 1.0f, .b = 1.0f, .a = 1.0f, .u = 1.0f, .v = 1.0f});
         
-        // Circle
-        renderer->SetRenderDrawColor(0, 0, 233, 255);
-        renderer->RenderCircle(1200, 450, 64, 64);
+        std::vector<int> indices = {0, 1, 2, 1, 3, 2};
+        
+        renderer->RenderGeometry(vertices, indices);
         
         renderer->Present();
     }
