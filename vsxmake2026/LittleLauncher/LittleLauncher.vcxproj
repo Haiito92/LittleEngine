@@ -136,6 +136,9 @@ xmake version 3.1.1+HEAD.3ba37a0d4
     <ProjectReference Include="..\LittleEngineCore\LittleEngineCore.vcxproj">
       <Project>{AF277861-6505-4131-AA44-E72DD03F14EE}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\LittleEngineMath\LittleEngineMath.vcxproj">
+      <Project>{46B26F33-1C2C-46CC-AF72-DCB372D2D55B}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\LittleEngineRendering\LittleEngineRendering.vcxproj">
       <Project>{C407D2EB-95F7-43B7-B984-3CDAD1438DC0}</Project>
     </ProjectReference>

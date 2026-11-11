@@ -5,6 +5,7 @@
 #include <string>
 #include <LittleEngine/SDLBackend/Export.hpp>
 #include <LittleEngine/Core/IWindow.hpp>
+#include <LittleEngine/Math/Vector2.hpp>
 
 struct SDL_Window;
 
@@ -16,7 +17,7 @@ namespace Le
         
     public:
         SDLWindow() = delete;
-        SDLWindow(const std::string& title, int width, int height);
+        SDLWindow(const std::string& title, const Vector2i& size);
         SDLWindow(const SDLWindow& other) = delete;
         SDLWindow(SDLWindow&& other) = delete;
         ~SDLWindow() override;

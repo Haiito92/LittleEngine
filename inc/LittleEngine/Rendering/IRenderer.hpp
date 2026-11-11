@@ -2,9 +2,11 @@
 
 #pragma once
 
-#include <cstdint>
 #include <vector>
 #include <LittleEngine/Rendering/Export.hpp>
+#include <LittleEngine/Math/Vector2.hpp>
+#include <LittleEngine/Math/Rect.hpp>
+#include <LittleEngine/Rendering/Color.hpp>
 
 namespace Le
 {
@@ -15,14 +17,14 @@ namespace Le
     public:
         virtual ~IRenderer();
         
-        virtual void RenderLine(float x1, float y1, float x2, float y2) = 0;
-        virtual void RenderFillRect(float x, float y, float width, float height) = 0;
-        virtual void RenderCircle(float cx, float cy, float radius, int segments) = 0;
+        virtual void RenderLine(const Vector2f& start, const Vector2f& end) = 0;
+        virtual void RenderFillRect(const Rectf& rect) = 0;
+        virtual void RenderCircle(const Vector2f& centerPos, float radius, int segments) = 0;
         virtual void RenderGeometry(const std::vector<Vertex>& vertices, const std::vector<int>& indices) = 0;
         
         virtual void Clear() = 0;
         virtual void Present() = 0;
         
-        virtual void SetRenderDrawColor(const std::uint8_t& r, const uint8_t& g, const uint8_t& b, const uint8_t& a) = 0;
+        virtual void SetRenderDrawColor(const Colorui8& color) = 0;
     };
 }

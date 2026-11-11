@@ -5,6 +5,7 @@
 #include <memory>
 #include <string>
 #include <LittleEngine/SDLBackend/Export.hpp>
+#include <LittleEngine/Math/Vector2.hpp>
 
 namespace Le
 {
@@ -12,7 +13,7 @@ namespace Le
     class IEventManager;
     class IRenderer;
     
-    std::unique_ptr<IWindow> LE_SDLBACKEND_API CreateSDLWindow(const std::string& title, int width, int height);
+    std::unique_ptr<IWindow> LE_SDLBACKEND_API CreateSDLWindow(const std::string& title, const Vector2i& size);
     std::unique_ptr<IEventManager> LE_SDLBACKEND_API CreateSDLEventManager();
     std::unique_ptr<IRenderer> LE_SDLBACKEND_API CreateSDLRenderer(const IWindow& window);
 }

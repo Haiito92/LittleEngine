@@ -28,20 +28,20 @@ namespace Le
             SDL_DestroyRenderer(m_renderer);
     }
 
-    void SDLRenderer::RenderLine(float x1, float y1, float x2, float y2)
+    void SDLRenderer::RenderLine(const Vector2f& start, const Vector2f& end)
     {
-        SDL_RenderLine(m_renderer, x1, y1, x2, y2);
+        SDL_RenderLine(m_renderer, start.x, start.y, end.x, end.y);
     }
 
-    void SDLRenderer::RenderFillRect(float x, float y, float width, float height)
+    void SDLRenderer::RenderFillRect(const Rectf& rect)
     {
-        SDL_FRect rect {.x = x, .y = y, .w = width, .h = height};
-        SDL_RenderFillRect(m_renderer, &rect);
+        SDL_FRect sdlRect {.x = rect.position.x, .y = rect.position.y, .w = rect.size.x, .h = rect.size.y};
+        SDL_RenderFillRect(m_renderer, &sdlRect);
     }
 
-    void SDLRenderer::RenderCircle(float cx, float cy, float radius, int segments)
+    void SDLRenderer::RenderCircle(const Vector2f& centerPos, float radius, int segments)
     {
-        SDL_FPoint center{.x = cx, .y = cy};
+        SDL_FPoint center{.x = centerPos.x, .y = centerPos.y};
             
         std::vector<SDL_FPoint> points(segments + 1);
             
@@ -67,12 +67,12 @@ namespace Le
         std::vector<SDL_Vertex> sdlVertices;
         sdlVertices.reserve(vertices.size());
         
-        for (const Vertex& vertex : vertices)
+        for (const Vertex& v : vertices)
         {
             sdlVertices.push_back(SDL_Vertex{
-                .position = SDL_FPoint{.x = vertex.x, .y = vertex.y},
-                .color = SDL_FColor {.r = vertex.r, .g = vertex.g, .b = vertex.b, .a = vertex.a},
-                .tex_coord = SDL_FPoint{.x = vertex.u, .y = vertex.v}
+                .position = SDL_FPoint{.x = v.position.x, .y = v.position.y},
+                .color = SDL_FColor {.r = v.color.r, .g = v.color.g, .b = v.color.b, .a = v.color.a},
+                .tex_coord = SDL_FPoint{.x = v.uv.x, .y = v.uv.y}
             });
         }
         
@@ -90,8 +90,8 @@ namespace Le
         SDL_RenderPresent(m_renderer);
     }
 
-    void SDLRenderer::SetRenderDrawColor(const uint8_t& r, const uint8_t& g, const uint8_t& b, const uint8_t& a)
+    void SDLRenderer::SetRenderDrawColor(const Colorui8& color)
     {
-        SDL_SetRenderDrawColor(m_renderer, r, g, b, a);
+        SDL_SetRenderDrawColor(m_renderer, color.r, color.g, color.b, color.a);
     }
 }

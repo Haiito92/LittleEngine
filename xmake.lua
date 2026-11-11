@@ -13,6 +13,10 @@ add_requires("fmt", "libsdl3")
 add_includedirs("inc")
 
 modules = {
+    Math = {
+        HeaderOnly = true,
+        Defines = {"LE_MATH_COMPILE"},
+        },
     Core = {
         Defines = {"LE_CORE_COMPILE"},
         Deps = {},
@@ -24,17 +28,21 @@ modules = {
         Deps = {"LittleEngineCore"}, 
         },
     SDLBackend = {
-            Defines = {"LE_SDLBACKEND_COMPILE"},
-            Deps = {"LittleEngineCore", "LittleEngineRendering"},
-            Packages = {"libsdl3"},
-            PublicPackages = {"fmt"},
-            },
+        Defines = {"LE_SDLBACKEND_COMPILE"},
+        Deps = {"LittleEngineCore", "LittleEngineRendering"},
+        Packages = {"libsdl3"},
+        PublicPackages = {"fmt"},
+        },
     }
 
 for name, module in pairs(modules) do
     target("LittleEngine" .. name)
         set_group("LittleEngine")
-        set_kind("shared")
+        if(module.HeaderOnly) then
+            set_kind("headeronly")
+        else
+            set_kind("shared")
+        end
         
         if module.Defines then
             add_defines(table.unpack(module.Defines))
@@ -56,7 +64,10 @@ for name, module in pairs(modules) do
         
         add_headerfiles("inc/(LittleEngine/" .. name .. "/**.hpp)")
         add_headerfiles("inc/(LittleEngine/" .. name .. "/**.inl)")
-        add_files("src/LittleEngine/" .. name.. "/**.cpp")
+        
+        if (not module.HeaderOnly) then
+            add_files("src/LittleEngine/" .. name.. "/**.cpp")
+        end
 end
 
 target("LittleLauncher")

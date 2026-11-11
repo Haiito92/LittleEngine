@@ -5,10 +5,10 @@
 #include <LittleEngine/SDLBackend/SDLWindow.hpp>
 #include <SDL3/SDL_video.h>
 
-Le::SDLWindow::SDLWindow(const std::string& title, int width, int height):
+Le::SDLWindow::SDLWindow(const std::string& title, const Vector2i& size):
 m_handle(nullptr)
 {
-    m_handle = SDL_CreateWindow(title.c_str(), width, height, 0);
+    m_handle = SDL_CreateWindow(title.c_str(), size.x, size.y, 0);
     
     if (m_handle == nullptr)
         throw std::runtime_error(fmt::format("SDL_CreateWindow() failed: {}", SDL_GetError()));

@@ -3,15 +3,17 @@
 #pragma once
 
 #include <LittleEngine/Rendering/Export.hpp>
+#include <LittleEngine/Math/Vector2.hpp>
+#include <LittleEngine/Rendering/Color.hpp>
 
 namespace Le
 {
     struct LE_RENDERING_API Vertex    
     {
     public:
-        float x, y;
-        float r, g, b, a;
-        float u, v;
+        Vector2f position;
+        Colorf color;
+        Vector2f uv;
     };
 }
 

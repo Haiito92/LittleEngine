@@ -8,9 +8,9 @@
 
 namespace Le
 {
-    std::unique_ptr<IWindow> CreateSDLWindow(const std::string& title, int width, int height)
+    std::unique_ptr<IWindow> CreateSDLWindow(const std::string& title, const Vector2i& size)
     {
-        return std::make_unique<SDLWindow>(title.c_str(), width, height);
+        return std::make_unique<SDLWindow>(title.c_str(), size);
     }
 
     std::unique_ptr<IEventManager> CreateSDLEventManager()

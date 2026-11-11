@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleLauncher", "LittleLau
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleEngineCore", "LittleEngineCore\LittleEngineCore.vcxproj", "{AF277861-6505-4131-AA44-E72DD03F14EE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleEngineMath", "LittleEngineMath\LittleEngineMath.vcxproj", "{46B26F33-1C2C-46CC-AF72-DCB372D2D55B}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleEngineRendering", "LittleEngineRendering\LittleEngineRendering.vcxproj", "{C407D2EB-95F7-43B7-B984-3CDAD1438DC0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleEngineSDLBackend", "LittleEngineSDLBackend\LittleEngineSDLBackend.vcxproj", "{49A8755A-7B20-429F-A461-BF9869E09231}"
@@ -39,6 +41,8 @@ Global
 		{9340C5DC-045C-42B7-9A5D-5550A6573799}.debug|x64.Build.0 = debug|x64
 		{AF277861-6505-4131-AA44-E72DD03F14EE}.debug|x64.ActiveCfg = debug|x64
 		{AF277861-6505-4131-AA44-E72DD03F14EE}.debug|x64.Build.0 = debug|x64
+		{46B26F33-1C2C-46CC-AF72-DCB372D2D55B}.debug|x64.ActiveCfg = debug|x64
+		{46B26F33-1C2C-46CC-AF72-DCB372D2D55B}.debug|x64.Build.0 = debug|x64
 		{C407D2EB-95F7-43B7-B984-3CDAD1438DC0}.debug|x64.ActiveCfg = debug|x64
 		{C407D2EB-95F7-43B7-B984-3CDAD1438DC0}.debug|x64.Build.0 = debug|x64
 		{49A8755A-7B20-429F-A461-BF9869E09231}.debug|x64.ActiveCfg = debug|x64
@@ -47,6 +51,8 @@ Global
 		{9340C5DC-045C-42B7-9A5D-5550A6573799}.release|x64.Build.0 = release|x64
 		{AF277861-6505-4131-AA44-E72DD03F14EE}.release|x64.ActiveCfg = release|x64
 		{AF277861-6505-4131-AA44-E72DD03F14EE}.release|x64.Build.0 = release|x64
+		{46B26F33-1C2C-46CC-AF72-DCB372D2D55B}.release|x64.ActiveCfg = release|x64
+		{46B26F33-1C2C-46CC-AF72-DCB372D2D55B}.release|x64.Build.0 = release|x64
 		{C407D2EB-95F7-43B7-B984-3CDAD1438DC0}.release|x64.ActiveCfg = release|x64
 		{C407D2EB-95F7-43B7-B984-3CDAD1438DC0}.release|x64.Build.0 = release|x64
 		{49A8755A-7B20-429F-A461-BF9869E09231}.release|x64.ActiveCfg = release|x64
@@ -57,6 +63,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AF277861-6505-4131-AA44-E72DD03F14EE} = {ECC269DC-48E4-441F-A47A-9E48DBF2243B}
+		{46B26F33-1C2C-46CC-AF72-DCB372D2D55B} = {ECC269DC-48E4-441F-A47A-9E48DBF2243B}
 		{C407D2EB-95F7-43B7-B984-3CDAD1438DC0} = {ECC269DC-48E4-441F-A47A-9E48DBF2243B}
 		{49A8755A-7B20-429F-A461-BF9869E09231} = {ECC269DC-48E4-441F-A47A-9E48DBF2243B}
 	EndGlobalSection
